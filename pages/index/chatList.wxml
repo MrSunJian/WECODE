@@ -1,0 +1,35 @@
+
+<loading hidden="{{hidden}}">
+    正在刷新...
+</loading>
+
+<view class="container">
+  <view class="search_box"><input placeholder="搜索" bindinput="changeInput" placeholder-style="color:rgb(230,230,230)" class="search"/></view>
+  <!-- <scroll-view scroll-y="true" bindscrolltoupper="refesh" class="scroll_view"> -->
+  <view class="chatList">
+    <view class="item-container" wx:for="{{messageList}}" wx:for-item="i" wx:for-index="index" data-index="{{index}}" data-messageid="{{i.messageId}}" data-receivename="{{i.nickname}}" data-receiveUserId="{{i.receiveUserId}}" bindtap="goChatroom" >
+      <view class="marks" wx:if="{{i.readCount}}">
+        <text>{{i.readCount}}</text>
+      </view>
+      <image src="{{i.receiveUserHeadImg}}"></image>
+      <view class="item-text">
+        <view class="text_box">
+          <view class="flex">
+            <text class="title">{{i.nickname}}</text>
+          </view>
+          <view class="flex m_top">
+            <text class="message" wx:if="{{i.type==1}}">{{i.info}}</text>
+            <text class="message" wx:if="{{i.type==2}}">[图片]</text>
+          </view>
+        </view>
+        <!-- <view class="tag tag1" wx:if="{{i.tag==1}}"> 向导</view>
+        <view class="tag tag2" wx:if="{{i.tag==2}}"> 旅伴</view>
+        <view class="tag tag2" wx:if="{{i.tag==3}}"> 旅伴</view> -->
+      </view>
+      <view class="item-time padding_half">
+        <text class="message">{{i.createdAt}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- </scroll-view> -->
+</view>

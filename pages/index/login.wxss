@@ -1,0 +1,62 @@
+/* login.wxss */
+
+.container{
+  background-color: #EBEBEB;
+}
+.phoneNum,.secret{
+  background-color: #fff;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.phoneNum{
+  margin-top: 100rpx
+}
+.secret{
+  margin-top: 20rpx
+}
+.Num{
+  width: 70%;
+  height: 90rpx;
+  margin-left: 40rpx;
+  border: none
+}
+.btngroup{
+  width: 100%
+}
+.btn{
+  display: inline-block;
+  width: 40%;
+  height: 100rpx;
+  border-radius:10rpx;
+  background-color: #000;
+  color: #fff;
+  margin: 0 5%;
+  margin-top: 80rpx; 
+  font-size: 42rpx;
+  font-weight: bold;
+  position: relative;
+}
+
+.forget{
+  position: absolute;
+  top: 490rpx;
+  right: 30rpx;
+  height: 30rpx;
+  color: #E5AB52;
+  font-size: 26rpx;
+}
+.tip{
+  width: 702rpx;
+  font-size: 26rpx;
+  margin: 234rpx auto;
+  
+}
+.tips1{
+  color: rgb(240, 0, 0);
+  margin-bottom: 18rpx;
+}
+.tips2{
+  color: rgb(180, 180, 180);
+  line-height: 34rpx;
+}

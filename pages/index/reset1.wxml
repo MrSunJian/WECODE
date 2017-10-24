@@ -1,0 +1,9 @@
+<!--resset1.wxml-->
+<view class="container">
+  <view class="phoneNum"><input class="Num" placeholder="手机号" type="number" maxlength="11" bindinput="phoneNum"/><button class="getcode" disabled='{{getCheck}}' bindtap="getCheckcode">{{count}}<text wx:if="{{getCheck}}">s后重新获取</text></button></view>
+  <view class="secret"><input class="Num" placeholder="输入验证码" bindinput="code"/></view>
+  <view class="secret"><input class="Num" placeholder="新密码"  password='true' maxlength='16' minlength='6'  bindinput="secret"/></view>
+  <view class="secret"><input class="Num" placeholder="再次输入新密码" password='true' maxlength='16' minlength='6' bindinput="confirm"/></view>
+  <button class="btn" bindtap="reset2">确定</button>
+  <view class="black"></view>
+</view>

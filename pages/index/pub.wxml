@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="swiper">
+    <swiper indicator-dots="true" autoplay="true" interval="3000" duration="500">
+      <swiper-item>
+        <image src="../../pic/zhaobanlv.png" class="slide-image" bindtap="img1"/>
+      </swiper-item>
+      
+      <swiper-item>
+        <image src="../../pic/zhaoxiangdao_72.png" class="slide-image" bindtap="img2"/>
+      </swiper-item>
+
+      <swiper-item>        
+        <image src="../../pic/xiangdaofabu.png" class="slide-image" bindtap="img3"/>       
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

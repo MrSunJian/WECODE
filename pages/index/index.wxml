@@ -1,0 +1,34 @@
+<import src="../../template/area_select.wxml"/>
+<view class="container">
+  <view class="top">
+    <view class="date_pick">
+      <image src="../../pic/shijian.png" class="time"></image> 时间:
+      <view class="date">  <view class="date_picker1"><picker mode="date" bindchange="bindDateChange1" start="{{startDate}}">{{startDate}}</picker></view>至 <view class="date_picker2"><picker mode="date" bindchange="bindDateChange2" start="{{startDate}}"> {{endDate}}</picker></view> </view>
+    </view>
+    <picker mode="region" bindchange="regionChange" value="{{region}}">
+      <view class="place_pick select" bindtap="choosearea">
+        <image src="../../pic/didian.png" class="place"></image> 地点：<view class="place_choose value" wx:if="{{address.resideprovince}}">{{address.resideprovince}}-{{address.residecity}}-{{address.country}}</view>
+      </view>
+      <template is="area_select" data="{{showArea,resideprovince,residecity,country,currentTab,curr_pro,curr_cit,curr_cou}}" />
+    </picker>
+    <picker mode="selector" value="{{index}}" range="{{array}}" bindchange="purposeChange">
+      <view class="partner_pick">
+        <image src="../../pic/wwtr.png" class="purpose"></image> {{objectArray[index]}}
+      </view>
+    </picker>
+    <view class="gaojisousuo" bindtap="search">
+      <image src="../../pic/sousuo.png" class="sousuo"> </image><text class="sousuo_text">高级搜索</text>
+    </view>
+  </view>
+  <view class="tuijian">
+    <view class="title">当月旅友推荐</view><view class="change" bindtap="change"> <image src="../../pic/change.png"></image> <text>换一批</text></view>
+    <view class="tuijian_list">
+      <image class="list_item" wx:for="{{suggest}}" src="{{item.headImg}}" data-uid="{{item.userId}}" data-typeid="{{item.mateId}}" data-type="{{type}}" bindtap="imgTap"></image>
+      <image class="list_item" src="../../pic/bgpic.png" ></image>
+      <image class="list_item" src="../../pic/bgpic.png" ></image>
+      <image class="list_item" src="../../pic/bgpic.png" ></image>
+       <!-- <image class="list_item" src="../../pic/bgpic.png" ></image>
+      <image class="list_item" src="../../pic/bgpic.png" ></image> -->
+    </view> 
+  </view>
+</view>

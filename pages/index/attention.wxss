@@ -1,0 +1,17 @@
+/* attention.wxss */
+.tips{
+  width: 702rpx;
+  background-color: #fff;
+}
+.attention{
+  color: #000;
+  font-size: 26rpx;
+  line-height: 48rpx;
+}
+.copyright{
+  font-weight: bold;
+  color: #000;
+  font-size: 22rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}

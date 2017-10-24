@@ -1,0 +1,101 @@
+/* chatList.wxss */
+.search_box{
+  width: 100%;
+  height: 100rpx;
+  background-color: rgb(235, 235, 235);
+  position: relative;
+  text-align: center
+}
+.search{
+  width: 700rpx;
+  height: 60rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  margin: 20rpx auto;
+  z-index: 100;
+}
+.search_pic{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 285rpx;
+  top: 28rpx;
+  z-index: 9999;
+}
+.scroll_view{
+  height: 1010rpx;
+}
+.chatList{
+  /* margin-left: 40rpx; */
+  width: 100%
+}
+.item-container{
+  display: flex;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #eee;
+  position: relative;
+  width: 100%;
+  /* height: 130rpx; */
+}
+.item-container image{
+  float: left;
+  width: 85rpx;
+  height: 85rpx;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.marks{
+  position: absolute;
+  top: 0;
+  left: 90rpx;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background-color: red;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+}
+.item-text{
+  padding-left: 30rpx;
+  position: relative
+}
+.text_box{
+  display: flex;
+  flex-direction: column
+}
+.m_top{
+  margin-top: 9rpx;
+}
+.flex{
+  display: flex;
+}
+.title{
+  font-family: "微软雅黑";
+  font-size: 38rpx;
+}
+.message{
+  font-size: 28rpx;
+  color: rgb(155, 155, 155);
+}
+.item-time{
+  position: absolute;
+  right: 100rpx;
+}
+.padding_half{
+  padding: 10rpx;
+}
+/* .tag{
+  position: absolute;
+  width: 20rpx;
+  left: 200rpx;
+  top: 0;
+  font-size: 16rpx;
+}
+.tag1{
+  color: #f10000;
+}
+.tag2{
+  color: #0aba08;
+} */

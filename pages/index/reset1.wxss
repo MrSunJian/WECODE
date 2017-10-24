@@ -1,0 +1,50 @@
+/* resset1.wxss */
+.container{
+  background-color: #EBEBEB;
+}
+.phoneNum,.secret{
+  background-color: #fff;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.phoneNum{
+  margin-top: 100rpx
+}
+.secret{
+  margin-top: 20rpx
+}
+.getcode{
+  float: right;
+  width: 256rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 10rpx;
+  color: #E5AB52;
+  background-color: #000;
+  font-size: 30rpx;
+  text-align: center
+}
+.Num{
+  width: 60%;
+  height: 90rpx;
+  margin-left: 40rpx;
+  border: none;
+  display: inline-block
+}
+.btn{
+  width: 90%;
+  height: 100rpx;
+  border-radius:10rpx;
+  background-color: #000;
+  color: #fff;
+  margin: 0 auto;
+  margin-top: 80rpx; 
+  font-size: 42rpx;
+  font-weight: bold;
+  
+}
+.black{
+  width: 100%;
+  height: 726rpx;
+}

@@ -1,0 +1,19 @@
+<import src="../../template/area_select.wxml"/>
+<view class="container1">
+  <view class="info">
+    <view class="item"> <view class="item_container"> <text>昵称:</text><input class="input" bindinput="nickName"/> </view></view>
+    <view class="item"> <view class="item_container"> <text>性别:</text><radio-group style="display:inline-block;" bindchange="sexChange"><radio value="男" checked="{{false}}" style="margin-left:40rpx"/>男 <radio value="女" checked="{{false}}" style="margin-left:40rpx"/>女</radio-group> </view></view>
+    <view class="item" bindtap="choosearea"> <view class="item_container" > <text>地域:</text><picker mode="region" bindchange="regionChange" value="{{region}}"><view class="place_choose " style="margin-left:40rpx" wx:if="{{address.resideprovince}}">{{address.resideprovince}}-{{address.residecity}}-{{address.country}}</view></picker> </view></view>
+    <view class="item"> <view class="item_container"> <text>手机号:</text><input class="input"  type="number" maxlength="11" bindinput="phoneNum"/> </view></view>
+    <view class="item"> <view class="item_container"> <text>验证码:</text><input class="input2"  bindinput="checkNum"/><button disabled='{{getCheck}}' class="btn" bindtap="getCheckcode">{{count}}</button> </view></view>
+    <view class="item"> <view class="item_container"> <text>密码:</text><input class="input" placeholder="请输入6-16位登录密码" password='true' maxlength='16' minlength='6' bindinput="password"/> </view></view>
+  </view>
+  <view class="check"> <switch type="checkbox" bindchange="agree"/> 我已阅读并同意该<text class="attention" bindtap="attention">注意事项</text></view>
+  <button class="regist" bindtap="confirm">注册</button>
+  <view class="tip">
+    <view class="tips1"><text>注：本平台将采用一票否决制哦。</text></view>
+    <view class="tips2"><text>任何女生存在五次一票否决制的票决权，即如果女生在跟旅伴出去玩耍的时候发现对方的信息是虚假的，或者发生任何不文明行为，则可以申请使用一票否决制，任何一个男生被使用了三次一票否决制之后则自动被禁入我们的程序。但每一个女生只有5张票，系统应自动记录，一旦使用完5票以后，则该女生的账号不可以再使用该权限。</text></view>
+  </view>
+
+</view>
+<template is="area_select" data="{{showArea,resideprovince,residecity,country,currentTab,curr_pro,curr_cit,curr_cou}}" />

@@ -1,0 +1,37 @@
+<!--search.wxml-->
+<import src="../../template/area_select.wxml"/>
+<view class="container_search">
+  <form>
+    <view class="top"></view>
+    <view class="item m_top border_top"><view class="item_container"><image class="left_pic" src="../../pic/riqi.png"></image>时间：<view class="date_picker1"><picker mode="date" bindchange="bindDateChange1" start="{{startDate}}">{{startDate}}</picker></view>至 <view class="date_picker2"><picker mode="date" bindchange="bindDateChange2" start="{{startDate}}"> {{endDate}}</picker></view> </view></view>
+    <view class="item border_bottom"><view class="item_container" style="border-bottom:none;" bindtap="choosearea"><image class="left_pic" src="../../pic/feiji.png"></image>地点：<picker mode="region" bindchange="regionChange" value="{{region}}"><view class="place_choose value" style="margin-left:14rpx" wx:if="{{address.resideprovince}}">{{address.resideprovince}}-{{address.residecity}}-{{address.country}}</view></picker></view></view>
+    <view class="item m_top border_top "> <view class="item_container"><image class="left_pic" src="../../pic/yusuan.png"></image>预算： <input class="input" bindinput="budget"/>  </view></view>
+    <view class="item "> <picker mode="selector" bindchange="travel_change" value="{{index_travel}}" range="{{array_travel}}"> <view class="item_container"> <image class="left_pic" src="../../pic/luxing.png"></image>旅行性质： <text class="text">{{array_travel[index_travel]}}</text> <image src="../../pic/jiantou.png" class="arrow"></image>  </view></picker> </view>
+    <view class="item"><picker mode="selector" bindchange="work_change" value="{{index_work}}" range="{{array_work}}"><view class="item_container"><image class="left_pic" src="../../pic/gongzuoxingzhi.png"></image>工作性质： <text class="text">{{array_work[index_work]}}</text> <image src="../../pic/jiantou.png" class="arrow"></image></view></picker></view>
+    <view class="item  border_bottom"> <view class="item_container"><image class="left_pic" src="../../pic/hobby.png"></image> 兴趣爱好： <input class="input" />  </view> </view>
+    <view class="item m_top border_top"><view class="item_container"><image class="left_pic" src="../../pic/xingbie.png"></image> 性别： <radio-group style="display:inline-block;" bindchange="sex"><radio value="{{sex[0]}}" checked="{{false}}" style="margin-left:40rpx"/>男 <radio value="{{sex[1]}}" checked="{{false}}" style="margin-left:40rpx"/>女</radio-group> </view></view>
+    <view class="item"><picker mode="selector" bindchange="star_change" value="{{index_star}}" range="{{array_star}}"> <view class="item_container"><image class="left_pic" src="../../pic/xingzuo.png"></image>星座：<text class="text">{{array_star[index_star]}}</text> <image src="../../pic/jiantou.png" class="arrow2"></image></view></picker> </view>
+    <view class="item"><view class="item_container"><image class="left_pic" src="../../pic/school.png"></image>学校： <input class="input" bindinput="school"/>     </view> </view>
+    <view class="item"><picker mode="selector" bindchange="study_change" value="{{index_study}}" range="{{array_study}}"> <view class="item_container"><image class="left_pic" src="../../pic/xueli.png"></image>学历：<text class="text">{{array_study[index_study]}}</text> <image src="../../pic/jiantou.png" class="arrow2"></image></view></picker> </view>
+    <view class="item_2" bindtap="showDetail">
+      <view class="item_container"><image class="left_pic" src="../../pic/yuyan.png"></image>语言：<image src="../../pic/jiantou.png" class="arrow3"></image></view>
+    </view>
+    <view class="item_3" wx:if="{{show}}">
+      <checkbox-group bindchange="languageChange" class="checkbox">
+        <label class="checkbox" wx:for="{{items}}">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}" class="check_item" />{{item.name}}
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="item border_bottom" bindtap="showDetail_taste"><view class="item_container"><image class="left_pic" src="../../pic/yinshi.png"></image>饮食口味：<image src="../../pic/jiantou.png" class="arrow4"></image></view> </view>
+    <view class="item_3" wx:if="{{show_taste}}">
+      <checkbox-group bindchange="tasteChange" class="checkbox_taste">
+        <label class="checkbox_taste" wx:for="{{taste}}">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </checkbox-group>
+    </view>
+    <button class=" btn m_top" bindtap="pub">发布</button>
+  </form>
+</view>
+<template is="area_select" data="{{showArea,resideprovince,residecity,country,currentTab,curr_pro,curr_cit,curr_cou}}" />

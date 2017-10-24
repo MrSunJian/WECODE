@@ -1,0 +1,67 @@
+
+<view class="container">
+  <view class="top">
+    <view class="mini_pic"><image class="pic" src="{{myInfo.headImg_path}}"></image> <image src="../../pic/yirenzheng.png" class="renzheng" wx:if="{{myInfo.level=='4'}}"></image> </view>
+    <view class="person_info">
+      <view class="info">
+        <view class="left_info">
+          <text class="info1">姓名：{{myInfo.nickname}}</text>    
+          <text class="info1">性别：{{myInfo.sex}}</text>     
+          <text class="info1">现居：{{myInfo.area}}</text>  
+        </view>
+        <view class="right_info">
+          <text class="level">等级：</text><text class="level_num" >V{{myInfo.level}}</text> 
+          <button class="zan" bindtap="perfect" disabled="{{zan}}"> <image class="pic_zan" src="../../pic/zan.png"></image> {{myInfo.praise}}</button>
+        </view>
+      </view>
+      <view class="tag">
+        <view class="tag_left">
+          <view class="tag_item">{{tag1}} </view> <view class="tag_item">{{tag2}} </view> <view class="tag_item">{{tag3}} </view>
+          <view class="tag_item">{{tag4}} </view> <view class="tag_item">{{tag5}} </view> <view class="tag_item">{{tag6}} </view>
+        </view>
+        <view class="chatbox">
+          <image class="chatPic" src="../../pic/xiaoxi_chat.png" data-uid="{{myInfo.userId}}" data-type="{{type}}" data-typeid="{{typeId}}" data-receivename="{{myInfo.nickname}}" bindtap="goChatroom"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="tuji">
+    <view class="tabBar"><view class="tab_item {{state1?'cur':''}} " bindtap="click_fabu">我的发布</view><view class="tab_item             {{state2?'cur':''}}" bindtap="click_info">个人信息</view><view class="tab_item {{state3?'cur':''}}" bindtap="click_tuji">图集</view></view>
+    <view class="tuji_list" wx:if="{{state3}}">
+      <image wx:for="{{imgList}}" src="{{item}}" data-src="{{item}}" class="tuji_list_item" bindtap="big_pic"></image> 
+    </view>
+    
+    <view class="personal_info" wx:if="{{state2}}">
+       <view class="personal_info_item">年龄：{{myInfo.age}}</view>
+      <view class="personal_info_item">星座：{{myInfo.constellation}}</view>
+      <view class="personal_info_item">学校：{{myInfo.school}}</view>
+      <view class="personal_info_item">兴趣爱好：{{myInfo.hobby}}</view>
+      <view class="personal_info_item">饮食口味：{{myInfo.flavor}}</view>
+      <view class="personal_info_item">工作性质：{{myInfo.workNature}}</view>
+      <view class="personal_info_item">语言能力：{{myInfo.language}}</view>
+      <view class="personal_info_item">芝麻信用：{{myInfo.zhima}}</view>
+      <view class="personal_info_item">身份证号： <text wx:if="{{myInfo.idNumber!==''}}">已提供</text><text wx:if="{{myInfo.idNumber==''}}">未提供</text> </view>
+      <view class="pingjia">自我评价</view>
+      <view class="pingjia_detail"><view class="detail">{{pingjia}}</view></view>
+    </view>
+    <view class="fabu" wx:if="{{state1}}">
+      <view class="ul">
+        <view class="li">
+          <view class="li_item"><view class="pic_jiao"></view><text class="search_time" >{{fabu_data.search.startTime}} 至 {{fabu_data.search.endTime}}</text></view>
+          <view class="li_item"><view class="dian">●</view><text class="purpose_place">{{fabu_data.search.place}}</text><text style="padding-left:48rpx;color: #66dc46;font-size: 27rpx;font-weight: bold;">{{fabu_data.search.state}}</text></view>
+          <view class="li_item_visited"><text class="search_time" >{{fabu_data.played[0].startTime}} 至 {{fabu_data.played[0].endTime}}</text></view>
+          <view class="li_item"><view class="dian">●</view><view class="visited_place">{{fabu_data.played[0].place}}</view> <view class="star"><image class="stars" src="../../pic/stars.png"></image><view class="cover" style="left:{{left}}rpx"></view></view> </view>
+          <view class="li_item"><image class="tour_pic" src="{{fabu_data.played[0].pic[0]}}"></image><image class="tour_pic" src="{{fabu_data.played[0].pic[0]}}"></image><image class="tour_pic" src="{{fabu_data.played[0].pic[0]}}"></image></view>
+          <view class="li_item">
+            <view class="xin"><view class="pic_xin"><image src="../../pic/xin.png"></image></view><view class="pj"> 评价</view></view>
+          </view>
+          <view class="li_item">
+            <view class="pj_detail">
+              <view class="detail">{{fabu_data.played[0].comment}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

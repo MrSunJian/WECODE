@@ -1,0 +1,36 @@
+
+
+<scroll-view scroll-y="true"  class="srollView"  scroll-with-animation="true" scroll-into-view="msg{{toView}}">
+    <view class="infoTip" wx:if="{{show}}"><text class="tipMessage">{{tipMessage}}</text></view>
+    <view wx:for="{{messageList}}" wx:for-item="i">
+        <view class="padding clearfix" wx:if="{{i.userId==userId}}" id="msg{{i.messageId}}">
+            <image class="right-Avatar padding_half" src="{{i.headImg}}"></image>
+            <view class="right-Triangle" wx:if="{{i.type==1}}"></view>
+            <view class=" padding_half">
+                <view class="right-message" wx:if="{{i.type==1}}">{{i.info}}</view>
+                <image wx:if="{{i.type==2}}" style="width:150px;height:120px;float:right" src="{{i.info}}"></image>                
+            </view>
+        </view>
+        <view class="padding clearfix" wx:elif="{{i.userId==receiveUserId}}" id="msg{{i.messageId}}">
+            <image class="left-Avatar padding_half" src="{{i.receiveUserHeadImg}}"></image>
+            <view class="left-Triangle" wx:if="{{i.type==1}}"></view>
+            <view class="padding_half">
+                <view class="left-message" wx:if="{{i.type==1}}">{{i.info}}</view>
+                <image wx:if="{{i.type==2}}" style="width:150px;height:120px;float:left" src="{{i.info}}"></image>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<form bindreset="cleanInput">
+  <view class="wa-row fixed" style="height:86rpx;">
+      <image src="../../pic/choosePic.png" class="choosePic" bindtap="choosePic"></image>
+      <view class="wa-col-66 padding_half">
+        <input  class="input" bindinput="message"/>
+      </view>
+      <view style="text-align:center"><button class="send_btn" bindtap="sendMessage" form-type="reset">发送</button></view> 
+  </view>
+</form>
+<view class="select" >
+  <view class="chooseYes" bindtap="wanted"> <image src="../../pic/smile.png" style="margin-right:18rpx"></image> 勾搭成功</view>
+  <view class="chooseNo" bindtap="sorry"> <image src="../../pic/cry.png" style="margin-right:18rpx"></image> 勾搭不成功</view>
+</view> 

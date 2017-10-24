@@ -1,0 +1,35 @@
+
+<import src="../../template/area_select.wxml"/>
+<view class="container">
+  <view class="search_box" bindtap="choosearea"> <text style="padding-left:40rpx">请选择地址：</text><picker mode="region" bindchange="regionChange" value="{{region}}"><view class="place_choose value" style="margin-left:14rpx" wx:if="{{address.resideprovince}}">{{address.resideprovince}}-{{address.residecity}}</view></picker></view><button class="confirm" bindtap="confirm">确定</button>
+    <view class="item-container" wx:for="{{list}}" wx:for-item="i"  >
+        <image src="{{i.headImg}}"  data-id="{{i.userId}}" data-type="{{i.type}}" data-typeid="{{i.id}}" bindtap="goToInfo"></image>
+        <view class="item-text"  data-id="{{i.userId}}" data-typeid="{{i.id}}" data-type="{{i.type}}" bindtap="goToInfo">
+          <view class="text_box">
+            <view class="flex">
+              <view class="title">
+                {{i.nickname}}<text class="money">{{i.price}}</text>元 
+                <view class="bianqian">
+                  <text class="tag tag1" wx:if="{{i.type=='向导发布'}}"> 向导发布</text>
+                  <text class="tag tag2" wx:if="{{i.type=='找向导'}}"> 找向导</text>
+                  <text class="tag tag3" wx:if="{{i.type=='找旅伴'}}"> 找旅伴</text>
+                </view>
+              </view>
+            </view>
+            <view class="flex m_top">
+              <view class="date"><image src="../../pic/naozhong.png" id="left_img"></image><text class="message">{{i.startTime}}</text></view>
+              <view class="place"><image src="../../pic/diian.png" id="left_img1"></image><text class="message">{{i.area}}</text></view>
+              <!-- <view class="tag">
+                <!-- <image src="../../pic/findPartner.png"></image> -->
+                <!-- <!-- <image src="../../pic/findGuide.png"></image> -->
+                <!-- <image src="../../pic/guidePub.png"></image>
+              </view>  -->
+            </view>
+          </view>
+        </view>
+      <view class="item-time padding_half">
+        <image id="tianjia" src="../../pic/xiaoxi_chat.png" data-id="{{i.userId}}" data-type="{{i.type}}" data-receivename="{{i.nickname}}" data-typeid="{{i.id}}" bindtap="goChatroom"></image>
+      </view>
+    </view>
+</view>
+<template is="area_select" data="{{showArea,resideprovince,residecity,country,currentTab,curr_pro,curr_cit,curr_cou}}" />

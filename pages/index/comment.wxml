@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="top">
+    <view class="mini_pic"><image class="pic" src="../../pic/bgpic.png"></image><image src="../../pic/yirenzheng.png" class="renzheng"></image> </view>
+    <view class="person_info">
+      <view class="info">
+        <view class="left_info">
+          <text class="info1">姓名：{{name}}</text>    
+          <text class="info1">时间：{{sex}}</text>     
+          <text class="info1">地点：{{place}}</text>  
+        </view>
+        <view class="right_info">
+          <text class="level">等级：{{level}}</text> 
+          <view class="zan"> <image class="pic_zan" src="../../pic/zan.png"></image> {{num_zan}}</view>
+        </view>
+      </view>
+      <view class="tag">
+        <view class="tag_left">
+          <view class="tag_item">{{tag1}} </view> <view class="tag_item">{{tag2}} </view> <view class="tag_item">{{tag3}} </view>
+          <view class="tag_item">{{tag4}} </view> <view class="tag_item">{{tag5}} </view> <view class="tag_item">{{tag6}} </view>
+        </view>
+        
+      </view>
+    </view>
+  </view>
+  <view class="star">
+    <text class="text">满意度</text>
+    <view class="stars"> 
+      <image wx:for="{{star}}" src="{{item}}" class="item" wx:for-index="index" data-index="{{index+1}}" bindtap="star_click"></image><view class="cover" style="left:{{index*36-4}}rpx"></view>
+    </view>
+  </view>
+  <view class="star">
+    <text class="text">是否使用一票否决</text><radio-group style="display:inline-block;" bindchange="veto"><radio value="是" checked="{{!_veto}}" style="margin-left:40rpx"/>是 <radio value="否" checked="{{_veto}}" style="margin-left:40rpx"/>否</radio-group>
+  </view>
+  <view class="upload">
+    <view class="text">上传图片：</view>
+    <view class="upload_pic">
+      <image wx:for="{{imgList}}" src="{{item}}"></image>
+      <image src="../../pic/add.png" wx:if="{{showAdd}}" bindtap="chooseImg" ></image> 
+    </view>
+  </view>
+  <view class="pingjia">
+    <view class="title"><image src="../../pic/xin.png"></image><text class="text1">评价</text></view>
+    <textarea class="input" />
+  </view>
+  <button class="pub">发表</button>
+</view>

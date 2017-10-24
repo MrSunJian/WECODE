@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="phoneNum"><input class="Num" placeholder="手机号" bindinput="PhoneNum"/></view>
+  <view class="secret"><input class="Num" type="password" placeholder="登录密码" bindinput="pwd"/></view>
+  <view class="btngroup"><button class="btn" bindtap="login">登录</button><button class="btn" bindtap="regist">注册</button></view>
+  <view class="forget" bindtap="forget">忘记密码？</view>
+  <view class="tip">
+    <view class="tips1"><text>注：本平台将采用一票否决制哦。</text></view>
+    <view class="tips2"><text>任何女生存在五次一票否决制的票决权，即如果女生在跟旅伴出去玩耍的时候发现对方的信息是虚假的，或者发生任何不文明行为，则可以申请使用一票否决制，任何一个男生被使用了三次一票否决制之后则自动被禁入我们的程序。但每一个女生只有5张票，系统应自动记录，一旦使用完5票以后，则该女生的账号不可以再使用该权限。</text></view>
+  </view>
+</view>

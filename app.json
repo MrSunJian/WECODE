@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/tourist",
+    "pages/logs/logs",
+    "pages/index/search",
+    "pages/index/search_Result",
+    "pages/index/wanted",
+    "pages/index/pub",
+    "pages/index/regist",
+    "pages/index/attention",
+    "pages/index/myInfo",
+    "pages/index/chatList",
+    "pages/index/message",
+    "pages/index/explor",
+    "pages/index/myInfo2",
+    "pages/index/findGuide",
+    "pages/index/myInfo3",
+    "pages/index/guidePub",
+    "pages/index/comment",
+    "pages/index/findPartner",
+    "pages/index/login",
+    "pages/index/reset1"
+  ],
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "pic/shouye1.png",
+        "iconPath": "pic/shouye.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "pic/xiaoxi1.png",
+        "iconPath": "pic/xiaoxi.png",
+        "pagePath": "pages/index/chatList",
+        "text": "消息"
+      },
+      {
+        "selectedIconPath": "pic/fabu1.png",
+        "iconPath": "pic/fabu.png",
+        "pagePath": "pages/index/pub",
+        "text": "发布"
+      },
+      {
+        "selectedIconPath": "pic/sousuo1.png",
+        "iconPath": "pic/fangdajing.png",
+        "pagePath": "pages/index/explor",
+        "text": "发现"
+      },
+      {
+        "selectedIconPath": "pic/wo1.png",
+        "iconPath": "pic/wo.png",
+        "pagePath": "pages/index/tourist",
+        "text": "我"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Travel",
+    "navigationBarTextStyle": "black"
+  }
+}
