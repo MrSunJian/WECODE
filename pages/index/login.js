@@ -44,6 +44,7 @@ Page({
             key:"userId",
             data: userId
           })
+         
         }else{
           wx.showModal({
             title: '',
@@ -54,6 +55,11 @@ Page({
       },
       fail:function(e){
         console.log(e)
+      },
+      complete:function(){
+        wx.reLaunch({
+          url: 'index',
+        })
       }
     })
   },

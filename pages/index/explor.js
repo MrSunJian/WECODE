@@ -209,21 +209,27 @@ Page({
    */
   onLoad: function (options) {
     var userId = wx.getStorageSync('userId'),_that=this
-    wx.request({
-      url: config.host +'/Info/find',
-      data: { userId:userId },
-      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      method: 'POST',
-      success: function (e) {
-        console.log(e)
-        _that.setData({
-          list:e.data.msg
-        })  
-      },
-      fail: function (e) {
-        console.log(e)
-      }
-    })
+    if (userId == '') {
+      wx.redirectTo({
+        url: 'login',
+      })
+    } else {
+      wx.request({
+        url: config.host +'/Info/find',
+        data: { userId:userId },
+        header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        method: 'POST',
+        success: function (e) {
+          console.log(e)
+          _that.setData({
+            list:e.data.msg
+          })  
+        },
+        fail: function (e) {
+          console.log(e)
+        }
+      })
+    }
   },
 
   /**
@@ -258,7 +264,28 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    wx.showLoading({
+      title: '正在刷新...',
+    })
+    var userId = wx.getStorageSync('userId'), _that = this
+    wx.request({
+      url: config.host + '/Info/find',
+      data: { userId: userId },
+      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      method: 'POST',
+      success: function (e) {
+        console.log(e)
+        _that.setData({
+          list: e.data.msg
+        })
+      },
+      fail: function (e) {
+        console.log(e)
+      },
+      complete:function(){
+        wx.hideLoading()
+      }
+    })
   },
 
   /**

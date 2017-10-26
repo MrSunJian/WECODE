@@ -181,8 +181,8 @@ Page({
       
   },
   skip: function () {
-    wx.switchTab({
-      url: 'tourist'
+    wx.reLaunch({
+      url: 'tourist',
     })
   },
   /**

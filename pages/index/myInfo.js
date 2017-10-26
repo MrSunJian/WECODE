@@ -19,7 +19,7 @@ Page({
     tag3:'',
     tag4:'',
     tag5:'',
-
+    selfIntro:'',
 
     address: {},
     showArea: false,
@@ -32,11 +32,17 @@ Page({
     curr_cit: '',
     curr_cou: '',
   },
+  //后面加的 之前忘了
+  selfIntro:function(e){
+    this.setData({
+      selfIntro:e.detail.value
+    })
+  },
   next:function(){
     var src=this.data.src,name= this.data.Name, age = this.data.Age, idcard = this.data.idcard,
       area = this.data.address.resideprovince + '-' + this.data.address.residecity,
     tag1 = this.data.tag1, tag2 = this.data.tag2, tag3 = this.data.tag3, tag4 = this.data.tag4, tag5 = this.data.tag5,
-    userId = wx.getStorageSync('userId')
+    userId = wx.getStorageSync('userId'), selfIntro = this.data.selfIntro
     console.log(src)
     console.log(userId)
     wx.uploadFile({
@@ -70,6 +76,7 @@ Page({
         area:area,
         selfEvaluation:[tag1,tag2,tag3,tag4,tag5],
         truename: name,
+        selfIntro: selfIntro
       },
       header: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: 'POST',
@@ -86,8 +93,8 @@ Page({
     })
   },
   skip:function(){
-    wx.switchTab({
-      url: 'tourist'
+    wx.reLaunch({
+      url: 'tourist',
     })
   },
   changePic:function(){

@@ -1,7 +1,7 @@
 
 <import src="../../template/area_select.wxml"/>
 <view class="container">
-  <view class="search_box" bindtap="choosearea"> <text style="padding-left:40rpx">请选择地址：</text><picker mode="region" bindchange="regionChange" value="{{region}}"><view class="place_choose value" style="margin-left:14rpx" wx:if="{{address.resideprovince}}">{{address.resideprovince}}-{{address.residecity}}</view></picker></view><button class="confirm" bindtap="confirm">确定</button>
+  <view style="position:relative;width:100%; border-bottom: 1rpx solid #eee; height:80rpx;"><view class="search_box" bindtap="choosearea"> <text style="padding-left:40rpx">请选择地址：</text><picker mode="region" bindchange="regionChange" value="{{region}}"><view class="place_choose value" style="margin-left:14rpx" wx:if="{{address.resideprovince}}">{{address.resideprovince}}-{{address.residecity}}</view></picker></view><button class="confirm" bindtap="confirm">确定</button></view>
     <view class="item-container" wx:for="{{list}}" wx:for-item="i"  >
         <image src="{{i.headImg}}"  data-id="{{i.userId}}" data-type="{{i.type}}" data-typeid="{{i.id}}" bindtap="goToInfo"></image>
         <view class="item-text"  data-id="{{i.userId}}" data-typeid="{{i.id}}" data-type="{{i.type}}" bindtap="goToInfo">

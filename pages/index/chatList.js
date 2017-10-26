@@ -55,23 +55,29 @@ Page({
   onLoad: function (options) {
     var _self = this, userId = wx.getStorageSync('userId')
     console.log(userId)
-    wx.request({
-      url: config.host + '/Message/getList',
-      data: { userId: userId },
-      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      method: 'POST',
-      success: function (e) {
-        console.log(e)
-        _self.setData({
-          messageList: e.data.data
-        })
-        console.log(_self.data.messageList[1].receiveUserHeadImg)
-        console.log(_self.data.messageList[1].receiveUserId)
-      },
-      fail:function(e){
-        console.log(e)
-      }
-    })
+    if(userId==''){
+      wx.redirectTo({
+        url: 'login',
+      })
+    }else{
+      wx.request({
+        url: config.host + '/Message/getList',
+        data: { userId: userId },
+        header: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        success: function (e) {
+          console.log(e)
+          _self.setData({
+            messageList: e.data.data
+          })
+          console.log(_self.data.messageList[1].receiveUserHeadImg)
+          console.log(_self.data.messageList[1].receiveUserId)
+        },
+        fail:function(e){
+          console.log(e)
+        }
+      })
+    }
   },
 
   /**
@@ -106,23 +112,44 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    var that=this
-    console.log("aaaaaaa")
-    this.setData({
-      hidden: false,
-    })
-    setTimeout(function () {
-      that.setData({
-        hidden: true,
-      })
-    }, 2000)
+    
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    wx.showLoading({
+      title: '正在刷新...',
+    })
+    var _self = this, userId = wx.getStorageSync('userId')
+    console.log(userId)
+    if (userId == '') {
+      wx.redirectTo({
+        url: 'login',
+      })
+    } else {
+      wx.request({
+        url: config.host + '/Message/getList',
+        data: { userId: userId },
+        header: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        success: function (e) {
+          console.log(e)
+          _self.setData({
+            messageList: e.data.data
+          })
+          console.log(_self.data.messageList[1].receiveUserHeadImg)
+          console.log(_self.data.messageList[1].receiveUserId)
+        },
+        fail: function (e) {
+          console.log(e)
+        },
+        complete:function(){
+          wx.hideLoading()
+        }
+      })
+    }
   },
 
   /**

@@ -313,8 +313,9 @@
 }
 .item{
   width: 600rpx;
-  height: 310rpx;
-  margin: 0 auto 40rpx auto;
+  /* height: 310rpx; */
+  margin: 0 auto 30rpx auto;
+  /* padding: 20rpx; */
   color: rgb(150, 150, 150);
   font-size: 30rpx;
   border: 2rpx solid rgb(230, 230, 230);

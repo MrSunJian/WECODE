@@ -14,7 +14,8 @@
       <input class="input2" maxlength="4" bindinput="tag3"/>
       <input class="input2" maxlength="4" bindinput="tag4"/>
       <input class="input2" maxlength="4" bindinput="tag5"/>
-     </view>
+    </view>
+    <view class="item3"><textarea class="selfIntro" bindinput="selfIntro" placeholder="自我介绍，不要超过50字" placeholder-style="color:rgb(150, 150, 150)" maxlength="80"/></view>
   </view>
   <view class="button">
     <button class="skip" bindtap="skip">跳过</button> <button class="next" bindtap="next">下一步</button>   

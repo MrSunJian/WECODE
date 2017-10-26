@@ -79,79 +79,21 @@ Page({
         }
       ]
     },
-    msg:{
-      trip:[
-        {
-          tag: 0,
-          name: "孙建",
-          Idcard: "123456123456781234",
-          price: "500",
-          time: "2017-07-30",
-          place: "杭州市",
-          comment:'2'
-        },
-        {
-          tag: 0,
-          name: "孙建",
-          Idcard: "123456123456781234",
-          price: "500",
-          time: "2017-07-30",
-          place: "杭州市",
-          comment: '3',
-        },
-        {
-          tag: 0,
-          name: "孙建",
-          Idcard: "123456123456781234",
-          price: "500",
-          time: "2017-07-30",
-          place: "杭州市",
-          comment: "1",
-        },
-        {
-          tag: 0,
-          name: "孙建",
-          Idcard: "123456123456781234",
-          price: "500",
-          time: "2017-07-30",
-          place: "杭州市",
-          comment: "",
-        },
-        {
-          tag: 0,
-          name: "孙建",
-          Idcard: "123456123456781234",
-          price: "500",
-          time: "2017-07-30",
-          place: "杭州市",
-          comment: "",
-        },
-        {
-          tag: 0,
-          name: "孙建",
-          Idcard: "123456123456781234",
-          price: "500",
-          time: "2017-07-30",
-          place: "杭州市",
-          comment: "4",
-        },
-        {
-          tag: 0,
-          name: "孙建",
-          Idcard: "123456123456781234",
-          price: "500",
-          time: "2017-07-30",
-          place: "杭州市",
-          comment: "5",
-        }
-      ]
-    }
-
   },
-  level_up:function(){
-    wx.navigateTo({
-      url: 'regist',
-    })
+  level_up:function(e){
+    if (e.currentTarget.dataset.level==1){
+      wx.navigateTo({
+        url: 'myInfo',
+      })
+    } else if (e.currentTarget.dataset.level == 2){
+      wx.navigateTo({
+        url: 'myInfo2',
+      })
+    } else if (e.currentTarget.dataset.level == 3) {
+      wx.navigateTo({
+        url: 'myInfo3',
+      })
+    }
   },
   click_fabu:function(){
     this.setData({
@@ -193,6 +135,11 @@ Page({
   login:function(){
     wx.navigateTo({
       url: 'login',
+    })
+  },
+  myInfo:function(){
+    wx.navigateTo({
+      url: 'myInfo',
     })
   },
   add: function () {
@@ -268,62 +215,69 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     var that = this, userId = wx.getStorageSync('userId')
-    //加载图集
-    wx.request({
-      url: config.host +'/user/getPhotos',
-      data: { userId: 4 },
-      header: { 'Content-Type': 'application/json' },
-      method: 'POST',
-      success: function (e) {
-        console.log(e.data.data)
-        for (var n = e.data.data.length, i = n; i >0; i--){
-          var imgList = that.data.imgList
-          imgList.unshift(e.data.data[i-1].path);
-          // console.log(res.tempFilePaths);
+   
+    if (userId == '') {
+      wx.redirectTo({
+        url: 'login',
+      })
+    } else {
+      //加载图集
+      wx.request({
+        url: config.host +'/user/getPhotos',
+        data: { userId: userId },
+        header: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        success: function (e) {
+          console.log(e.data.data)
+          for (var n = e.data.data.length, i = n; i >0; i--){
+            var imgList = that.data.imgList
+            imgList.unshift(e.data.data[i-1].path);
+            // console.log(res.tempFilePaths);
+            that.setData({
+              imgList: imgList
+            })
+          }
+        }
+      })
+      //加载个人信息
+      wx.request({
+        url: config.host + '/user/getInfo',
+        data: { userId: userId },
+        header: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        success: function (e) {
+          console.log(e)
           that.setData({
-            imgList: imgList
+            myInfo:e.data.data
           })
         }
-      }
-    })
-    //加载个人信息
-    wx.request({
-      url: config.host + '/user/getInfo',
-      data: { userId: 4 },
-      header: { 'Content-Type': 'application/json' },
-      method: 'POST',
-      success: function (e) {
-        console.log(e)
-        that.setData({
-          myInfo:e.data.data
-        })
-      }
-    })
-    //行程单
-    wx.request({
-      url: config.host +'/order/getList',
-      data: { userId: 4 },
-      header: { 'Content-Type': 'application/json' },
-      method: 'POST',
-      success:function(e){
-        console.log(e)
-        var list = e.data.data
-        list[0].status=4
-        that.setData({
-          list:list
-        })
-      }
-    })
-    //我的发布
-    wx.request({
-      url: config.host +'/User/getPublish',
-      data: { userId: 4 },
-      header: { 'Content-Type': 'application/json' },
-      method: 'POST',
-      success: function (e) {
-        console.log(e)
-      }
-    })
+      })
+      //行程单
+      wx.request({
+        url: config.host +'/order/getList',
+        data: { userId: userId },
+        header: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        success:function(e){
+          console.log(e)
+          var list = e.data.data
+          list[0].status=4
+          that.setData({
+            list:list
+          })
+        }
+      })
+      //我的发布
+      wx.request({
+        url: config.host +'/User/getPublish',
+        data: { userId: userId },
+        header: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        success: function (e) {
+          console.log(e)
+        }
+      })
+    }
   },
   
   /**
@@ -358,6 +312,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    var userId=wx.getStorageSync('userId')
     wx.showLoading({
       title: '正在刷新，请稍后',
     })
@@ -365,7 +320,7 @@ Page({
     if (this.data.state1==true){
       wx.request({
         url: config.host + '/User/getPublish',
-        data: { userId: 4 },
+        data: { userId: userId },
         header: { 'Content-Type': 'application/json' },
         method: 'POST',
         success: function (e) {
@@ -378,7 +333,7 @@ Page({
     } else if (this.data.state2 == true){
       wx.request({
         url: config.host + '/user/getInfo',
-        data: { userId: 4 },
+        data: { userId: userId },
         header: { 'Content-Type': 'application/json' },
         method: 'POST',
         success: function (e) {
@@ -394,14 +349,14 @@ Page({
     } else if (this.data.state3 == true){
       wx.request({
         url: config.host + '/user/getPhotos',
-        data: { userId: 4 },
+        data: { userId: userId },
         header: { 'Content-Type': 'application/json' },
         method: 'POST',
         success: function (e) {
           console.log(e.data.data)
           for (var n = e.data.data.length, i = n; i > 0; i--) {
             var imgList = that.data.imgList
-            imgList.unshift(e.data.data[i - 1].path);
+            imgList.unshift(e.data.data[i-1].path);
             // console.log(res.tempFilePaths);
             _that.setData({
               imgList: imgList
@@ -415,7 +370,7 @@ Page({
     }else{
       wx.request({
         url: config.host + '/User/getPublish',
-        data: { userId: 4 },
+        data: { userId: userId },
         header: { 'Content-Type': 'application/json' },
         method: 'POST',
         success: function (e) {

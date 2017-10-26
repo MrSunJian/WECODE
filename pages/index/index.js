@@ -30,9 +30,16 @@ Page({
   
   
   search:function(){
-    wx.navigateTo({
-      url: 'search',
-    })
+    var userId = wx.getStorageSync('userId')
+    if (userId == '') {
+      wx.redirectTo({
+        url: 'login',
+      })
+    } else {
+      wx.navigateTo({
+        url: 'search',
+      })
+    }
   },
   change:function(){
     var that = this, page = this.data.page
@@ -60,10 +67,16 @@ Page({
   },
   imgTap:function(e){
     console.log(e)
-    wx.navigateTo({
-      url: 'wanted?uid=' + e.currentTarget.dataset.uid + '&&typeid=' + e.currentTarget.dataset.typeid + '&&type=' + e.currentTarget.dataset.type ,
-    })
-    
+    var userId = wx.getStorageSync('userId')
+    if (userId == '') {
+      wx.redirectTo({
+        url: 'login',
+      })
+    } else {
+      wx.navigateTo({
+        url: 'wanted?uid=' + e.currentTarget.dataset.uid + '&&typeid=' + e.currentTarget.dataset.typeid + '&&type=' + e.currentTarget.dataset.type ,
+      })
+    }
   },
   onLoad: function () {
     var nowDate = util.formatTime(new Date());

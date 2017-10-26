@@ -5,18 +5,18 @@
 .search_box{
   display: inline-flex;
   width: 80%;
-  height: 80rpx;
+  height: 64rpx;
   margin-left:10rpx ;
+  margin-top: 8rpx;
   border-radius: 20rpx;
-  line-height: 80rpx;
+  line-height: 64rpx;
   background-color: rgb(235, 235, 235);
   color: rgb(155, 155, 155);
-  position: relative;
-  text-align: center
+  text-align: center;
 }
 .place_choose{
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 64rpx;
+  line-height: 64rpx;
 }
 /* .areaSlect{
   padding: 10rpx 0 10rpx 40rpx;
@@ -43,8 +43,6 @@
 }
 .item-container{
   box-sizing: border-box;
-  /* box-shadow: 0 6rpx 6rpx #eee; */
-  /* margin-top: 26rpx; */
   display: flex;
   padding: 20rpx 30rpx;
   border-bottom: 1rpx solid #eee; 

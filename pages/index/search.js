@@ -170,7 +170,6 @@ Page({
       startTime = this.data.startDate, endTime = this.data.endDate,
       area = this.data.address.resideprovince + '-' + this.data.address.residecity,
       budget = this.data.budget, sex = this.data._sex,type=this.data._dest
-
       wx.request({
         url: config.host + '/Info/search',
         data: {
@@ -201,11 +200,7 @@ Page({
         fail: function (e) {
           console.log(e)
         }
-
       })
-
-
-
     wx.navigateTo({
       url: 'search_Result',
     })
