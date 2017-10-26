@@ -47,8 +47,9 @@
     </view>
     <view class="fabu" wx:if="{{state1}}">
       <view class="ul">
+      <view class="li_item"><view class="pic_jiao"></view><text class="search_time" >TO BE CONTINUED</text></view>
         <view class="li"> 
-          <view class="li_item"><view class="pic_jiao"></view><text class="search_time" >{{fabu_data.search[0].startTime}} 至 {{fabu_data.search[0].endTime}}</text></view>
+          <view class="li_item"><view class="dian"></view><text class="search_time" >{{fabu_data.search[1].startTime}} 至 {{fabu_data.search[1].endTime}}</text></view>
           <view class="li_item"><view class="dian">●</view><text class="purpose_place">{{fabu_data.search[0].place}}</text><text style="padding-left:48rpx;color: #66dc46;font-size: 27rpx;font-weight: bold;">{{fabu_data.search[0].state}}</text></view>
           
           <view class="li_item"><view class="dian"></view><text class="search_time" >{{fabu_data.search[1].startTime}} 至 {{fabu_data.search[1].endTime}}</text></view>
@@ -91,11 +92,11 @@
         <view class="list m_top">姓名：{{i.nickname}}</view>
         <view class="list">身份证号：<text wx:if="{{i.idNumber!==''}}">已提供</text><text wx:if="{{i.idNumber==''}}">未提供</text></view>
         <view class="list" wx:if="{{i.tag==0}}">订单价格：{{i.price}}元</view>
-        <view class="list">订单状态:  <text wx:if="{{i.status==1}}"> 勾搭中</text><text wx:if="{{i.status==2}}"> 勾搭成功</text><text wx:if="{{i.status==3}}"> 勾搭失败</text><text wx:if="{{i.status==4}}"> 支付成功</text><view class="goComment" bindtap="goPay" wx:if="{{i.status==2&&i.status!==4}}">去支付</view></view>
+        <view class="list">订单状态：  <text wx:if="{{i.status==1}}"> 勾搭中</text><text wx:if="{{i.status==2}}"> 勾搭成功</text><text wx:if="{{i.status==3}}"> 勾搭失败</text><text wx:if="{{i.status==4}}"> 支付成功</text><view class="goComment" bindtap="goPay" wx:if="{{i.status==2&&i.status!==4}}">去支付</view><view class="goComment" bindtap="cancelOrder" data-orderid="{{i.orderId}}" wx:if="{{i.status==4}}">取消订单</view></view>
         <view class="list">出游时间：{{i.typeInfo.startTime}}</view>
         <view class="list">出游地点：{{i.typeInfo.area}}</view>
-        <view class="list" wx:if="{{i.star!==null}}">评 <text style="margin-left:60rpx"> 价：</text><view class="star1"><image class="stars2" src="../../pic/stars.png"></image><view class="cover1" style="left:{{i.comment*38+6}}rpx"></view></view>    </view>  
-        <view class="list" wx:if="{{i.star==null}}">评 <text style="margin-left:60rpx"> 价：</text> <text>您尚未评价</text> <view class="goComment" bindtap="goComment" data-orderid="{{i.orderId}}">去评价</view></view> 
+        <view class="list" wx:if="{{i.star!==null}}">评 <text style="margin-left:60rpx"> 价：</text><view class="star1"><image class="stars2" src="../../pic/stars.png"></image><view class="cover1" style="left:{{i.star*38+6}}rpx"></view></view>    </view>  
+        <view class="list" wx:if="{{i.star==null}}">评 <text style="margin-left:60rpx"> 价：</text> <text>您尚未评价</text> <view class="goComment" bindtap="goComment" data-touserid="{{i.toUserId}}" data-orderid="{{i.orderId}}">去评价</view></view> 
       </view>
     </view>
   </view>

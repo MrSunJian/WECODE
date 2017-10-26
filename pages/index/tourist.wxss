@@ -151,7 +151,7 @@
 .tuji_list_item{
   width:226rpx;
   height: 280rpx;
-  border-radius: 15rpx;
+  border-radius: 16rpx;
   margin-bottom: 20rpx;
   margin-left: 18rpx
 }
@@ -160,14 +160,14 @@
   width: 100%;
 }
 .personal_info_item{
-  font-size: 27rpx;
+  font-size: 26rpx;
   padding-left: 60rpx;
   height: 55rpx;
   line-height: 55rpx;
   color: #9d9d9d;
 }
 .pingjia{
-  margin-top: 13rpx;
+  margin-top: 14rpx;
   font-size: 30rpx;
   padding-left: 60rpx;
   height: 60rpx;
@@ -184,13 +184,13 @@
  
 }
 .detail{
-   padding: 20rpx 5rpx 20rpx 15rpx;
+   padding: 20rpx 6rpx 20rpx 16rpx;
 }
 .ul{
    /* display: none;  */
   width:714rpx;
   margin: 0 auto;
-  border-left: 1rpx solid #e3e3e3;
+  border-left: 2rpx solid #e3e3e3;
   
 }
 .li_item{
@@ -351,7 +351,7 @@
   z-index: -1;
 }
 .goComment{
-  width: 100rpx;
+  padding: 2rpx 10rpx;
   height: 40rpx;
   border-radius: 10rpx;
   text-align: center;

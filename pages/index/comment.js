@@ -1,4 +1,5 @@
 // comment.js
+const config = require('../../utils/config');
 Page({
 
   /**
@@ -16,13 +17,17 @@ Page({
     tag4: "幽默",
     tag5: "帅气",
     tag6: "很有担当",
-    index:0,
+    index:5,
     star: ["../../pic/xingxinghui.png", "../../pic/xingxinghui.png", "../../pic/xingxinghui.png", "../../pic/xingxinghui.png", "../../pic/xingxinghui.png"],
     _veto:true,
     veto:'否',
     imgList: [],
     num_list:3,
-    showAdd:true
+    showAdd:true,
+    comment:'',
+    toUserId:'',
+    myInfo:'',
+    zan: false,
   },
   star_click:function(e){
     console.log(e);
@@ -33,7 +38,7 @@ Page({
   veto:function(e){
     // console.log(e.detail.value)
     var veto = e.detail.value,_that=this
-    if (e.detail.value=="是"){
+    if (veto=="是"){
       wx.showModal({
         title:'确定使用一票否决',
         content:'每个女生之后5次机会,本次确定使用吗？',
@@ -59,25 +64,51 @@ Page({
   chooseImg:function(){
     var that=this;
     wx.chooseImage({
-      count: that.data.num_list,
+      count: 1,
       success: function(res) {
-        // res.tempFilePaths.forEach(that.push(res)); 
-        for (var i = 0, n= res.tempFilePaths.length;i<n;i++){
-          var imgList=that.data.imgList
-          imgList.push(res.tempFilePaths[i]);
-          // console.log(res.tempFilePaths);
-          that.setData({
-            imgList: imgList,
-            num_list: that.data.num_list-n
+        console.log(res)       
+          var imgList = that.data.imgList, tmpPath = res.tempFilePaths[0]
+          wx.showLoading({
+            title: '图片上传中',
           })
-          console.log(that.data.num_list)
-          if(that.data.imgList.length>=3){
-            that.setData({
-              showAdd:false
-            })
-          }
-        }
+          wx.uploadFile({
+            url: config.host + '/Common/upload',
+            name: 'evaluate',
+            filePath: tmpPath,
+            formData: {
+              name: 'evaluate'
+            },
+            success: function (e) {
+              console.log(e)
+              var data = JSON.parse(e.data)
+              console.log(data.data)
+              console.log(data.data.rawUrl_path)
+              imgList.push(res.tempFilePaths[0]);
+              // console.log(res.tempFilePaths);
+              that.setData({
+                imgList: imgList,
+                num_list: that.data.num_list - 1
+              })
+              console.log(that.data.num_list)
+              if (that.data.imgList.length >= 3) {
+                that.setData({
+                  showAdd: false
+                })
+              }
+            },
+            fail:function(e){
+              console.log(e)
+            },
+            complete:function(){
+              wx.hideLoading()
+            }
+          })
       },
+    })
+  },
+  comment:function(e){
+    this.setData({
+      comment:e.detail.value
     })
   },
   push(res){
@@ -85,13 +116,84 @@ Page({
     this.data.imgList.push(res);
     console.log(this.data.imgList);
   },
+  pub:function(e){
+    var userId=wx.getStorageSync('userId'),orderId=this.data.orderId,
+    star=this.data.index,path=this.data.imgList,isVeto=this.data.veto
+    wx.request({
+      url: config.host +'/Order/evaluate',
+      data: { 
+        userId: userId,
+        orderId: orderId,
+        star: star,
+        path: path,
+        isVeto: isVeto
+      },
+      header: { 'Content-Type': 'application/json' },
+      method: 'POST',
+      success:function(e){
+        console.log(e)
+        if(e.data.status==1){
+          wx.navigateBack({
+            delta:1
+          })
+        }
+      }
+    })
+  },
+  perfect: function () {
+    console.log("aaaaa")
+    var _that = this,userId=wx.getStorageSync('userId')
+    wx.request({
+      url: config.host + '/User/praise',
+      data: {
+        userId: 4,
+        toUserId: _that.data.toUserId
+      },
+      header: { 'Content-Type': 'application/json' },
+      method: 'POST',
+      success: function (e) {
+        console.log(e)
+        if (e.data.status == 1 && e.data.msg !== "您已经点过赞") {
+          var praise = _that.data.myInfo
+          praise.praise = praise.praise + 1
+          _that.setData({
+            zan: true,
+            myInfo: praise
+          })
+        } else if (e.data.msg == "您已经点过赞") {
+          wx.showModal({
+            title: '',
+            content: '您已经为对方点过赞了哦',
+            showCancel: false
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this
     console.log(options)
     this.setData({
-      orderId:options.orderid
+      orderId:options.orderid,
+      toUserId:options.touserid
+    })
+    var toUserId=this.data.toUserId
+    wx.request({
+      url: config.host+'/User/getInfo',
+      data: {
+        userId: userId,
+      },
+      header: { 'Content-Type': 'application/json' },
+      method: 'POST',
+      success:function(e){
+        console.log(e)
+        that.setData({
+          myInfo: e.data.data
+        })
+      }
     })
   },
 

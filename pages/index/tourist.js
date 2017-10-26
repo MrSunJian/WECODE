@@ -187,7 +187,7 @@ Page({
   },
   goComment:function(e){
     wx.navigateTo({
-      url: 'comment?touserid='+e.currentTarget.dataset.touserid,
+      url: 'comment?orderid=' + e.currentTarget.dataset.orderid + '&&touserid=' + e.currentTarget.dataset.touserid,
     })
   },
   login:function(){
@@ -233,12 +233,35 @@ Page({
       urls: this.data.imgList,
     })
   },
+  cancelOrder:function(e){
+    var orderId = e.currentTarget.dataset.orderid,userId=wx.getStorageSync('userId')
+    wx.showModal({
+      title: '取消订单',
+      content: '确定取消订单吗？',
+      success:function(e){
+        if (e.confirm == true) {
+          wx.request({
+            url: config.host + '/Order/cancel',
+            data: { orderId: orderId, userId: userId },
+            header: { 'Content-Type': 'application/json' },
+            method: 'POST',
+            success: function (e) {
+              console.log(e)
+              if(e.data.status==1){
+                wx.showModal({
+                  title: '订单取消成功',
+                  content: '订单取消成功，我们将会在7个工作日内为您退款',
+                  showCancel:false
+                })
+              }
+            }
+          })
+        }
+      }
+    })
+    
+  },
  
-  // gotomessage:function(e){
-  //   wx.navigateTo({
-  //     url: 'message?name=' + e.currentTarget.dataset.name + "&id=" + e.currentTarget.dataset.id,
-  //   })
-  // },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -249,7 +272,7 @@ Page({
     wx.request({
       url: config.host +'/user/getPhotos',
       data: { userId: 4 },
-      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      header: { 'Content-Type': 'application/json' },
       method: 'POST',
       success: function (e) {
         console.log(e.data.data)
@@ -283,31 +306,22 @@ Page({
       header: { 'Content-Type': 'application/json' },
       method: 'POST',
       success:function(e){
-        Date.prototype.format = function (format) {
-          var o = {
-            "M+": this.getMonth() + 1, //month
-            "d+": this.getDate(), //day
-            "h+": this.getHours(), //hour
-            "m+": this.getMinutes(), //minute
-            "s+": this.getSeconds(), //second
-            "q+": Math.floor((this.getMonth() + 3) / 3), //quarter
-            "S": this.getMilliseconds() //millisecond
-          }
-          if (/(y+)/.test(format)) format = format.replace(RegExp.$1,
-            (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-          for (var k in o) if (new RegExp("(" + k + ")").test(format))
-            format = format.replace(RegExp.$1,
-              RegExp.$1.length == 1 ? o[k] :
-                ("00" + o[k]).substr(("" + o[k]).length));
-          return format;
-        },
         console.log(e)
         var list = e.data.data
-  
-        console.log(new Date(list[0].typeInfo.startTime).format('yyyy-MM-dd'))
+        list[0].status=4
         that.setData({
           list:list
         })
+      }
+    })
+    //我的发布
+    wx.request({
+      url: config.host +'/User/getPublish',
+      data: { userId: 4 },
+      header: { 'Content-Type': 'application/json' },
+      method: 'POST',
+      success: function (e) {
+        console.log(e)
       }
     })
   },
@@ -344,7 +358,74 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    wx.showLoading({
+      title: '正在刷新，请稍后',
+    })
+    var _that=this
+    if (this.data.state1==true){
+      wx.request({
+        url: config.host + '/User/getPublish',
+        data: { userId: 4 },
+        header: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        success: function (e) {
+          console.log(e)
+        },
+        complete:function(){
+          wx.hideLoading()
+        }
+      })
+    } else if (this.data.state2 == true){
+      wx.request({
+        url: config.host + '/user/getInfo',
+        data: { userId: 4 },
+        header: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        success: function (e) {
+          console.log(e)
+          _that.setData({
+            myInfo: e.data.data
+          })
+        },
+        complete: function () {
+          wx.hideLoading()
+        }
+      })
+    } else if (this.data.state3 == true){
+      wx.request({
+        url: config.host + '/user/getPhotos',
+        data: { userId: 4 },
+        header: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        success: function (e) {
+          console.log(e.data.data)
+          for (var n = e.data.data.length, i = n; i > 0; i--) {
+            var imgList = that.data.imgList
+            imgList.unshift(e.data.data[i - 1].path);
+            // console.log(res.tempFilePaths);
+            _that.setData({
+              imgList: imgList
+            })
+          }
+        },
+        complete: function () {
+          wx.hideLoading()
+        }
+      })
+    }else{
+      wx.request({
+        url: config.host + '/User/getPublish',
+        data: { userId: 4 },
+        header: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        success: function (e) {
+          console.log(e)
+        },
+        complete: function () {
+          wx.hideLoading()
+        }
+      })
+    }
   },
 
   /**
