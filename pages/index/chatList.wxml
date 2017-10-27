@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="search_box"><input placeholder="搜索" bindinput="changeInput" placeholder-style="color:rgb(230,230,230)" class="search"/></view>
+  <!-- <view class="search_box"><input placeholder="搜索" bindinput="changeInput" placeholder-style="color:rgb(230,230,230)" class="search"/></view> -->
   <!-- <scroll-view scroll-y="true" bindscrolltoupper="refesh" class="scroll_view"> -->
   <view class="chatList">
     <view class="item-container" wx:for="{{messageList}}" wx:for-item="i" wx:for-index="index" data-index="{{index}}" data-messageid="{{i.messageId}}" data-receivename="{{i.nickname}}" data-receiveUserId="{{i.receiveUserId}}" bindtap="goChatroom" >

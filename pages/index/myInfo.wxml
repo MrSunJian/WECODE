@@ -1,7 +1,7 @@
 <import src="../../template/area_select.wxml"/>
 <view class="container">
-  <view class="top"><image class="item" src="../../pic/v1.png"></image><image class="item" src="../../pic/v2_0.png"></image><image class="item" src="../../pic/v3_0.png"></image><image class="item" src="../../pic/v4_0.png"></image></view>
-  <view class="line"><view class="line_l"><image src="../../pic/jiao_1.png" class="foot"></image></view><view class="line_r"></view></view>
+  <view class="top"><image class="item" src="http://mttest.otoeasy.com/static/pic/v1.png"></image><image class="item" src="http://mttest.otoeasy.com/static/pic/v2_0.png"></image><image class="item" src="http://mttest.otoeasy.com/static/pic/v3_0.png"></image><image class="item" src="http://mttest.otoeasy.com/static/pic/v4_0.png"></image></view>
+  <view class="line"><view class="line_l"><image src="http://mttest.otoeasy.com/static/pic/jiao_1.png" class="foot"></image></view><view class="line_r"></view></view>
   <view class="addInfo">
     <view class="item1"><text class="title">真实头像:</text> <image src="{{src}}" class="pic" bindtap="changePic"></image></view>
     <view class="item1"><text class="title">真实姓名:</text><input class="input" bindinput="Name"/> </view>

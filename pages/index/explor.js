@@ -32,13 +32,20 @@ Page({
       url: 'wanted?uid=' + e.currentTarget.dataset.id + '&&typeid=' + e.currentTarget.dataset.typeid + '&&type=' + e.currentTarget.dataset.type,
     })
   },
-  onPullDownRefresh: function () {
-    wx.showToast({
-      title: '正在刷新...',
-      icon:'loading'
-    })    
+  confirm: function () {
+    var userId = wx.getStorageSync('userId'), area = this.data.address.resideprovince + '-' + this.data.address.residecity
+    if (this.data.address.resideprovince !== '') {
+      wx.request({
+        url: config.host + '/Info/find',
+        data: { userId: userId, area: area },
+        header: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        success: function (e) {
+          console.log(e)
+        },
+      })
+    }
   },
-
   //选择省市
   choosearea: function () {
 
@@ -91,20 +98,7 @@ Page({
     });
     
   },
-  confirm:function(){
-    var userId = wx.getStorageSync('userId'), area = this.data.address.resideprovince + '-' + this.data.address.residecity
-    if (this.data.address.resideprovince!==''){
-      wx.request({
-        url: config.host + '/Info/find',
-        data: { userId: userId, area: area },
-        header: { 'Content-Type': 'application/json' },
-        method: 'POST',
-        success: function (e) {
-          console.log(e)
-        },
-      })
-    } 
-  },
+  
   areaClose: function () {
     this.setData({
       showArea: false

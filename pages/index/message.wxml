@@ -23,7 +23,7 @@
 </scroll-view>
 <form bindreset="cleanInput">
   <view class="wa-row fixed" style="height:86rpx;">
-      <image src="../../pic/choosePic.png" class="choosePic" bindtap="choosePic"></image>
+      <image src="http://mttest.otoeasy.com/static/pic/choosePic.png" class="choosePic" bindtap="choosePic"></image>
       <view class="wa-col-66 padding_half">
         <input  class="input" bindinput="message"/>
       </view>
@@ -31,6 +31,6 @@
   </view>
 </form>
 <view class="select" >
-  <view class="chooseYes" bindtap="wanted"> <image src="../../pic/smile.png" style="margin-right:18rpx"></image> 勾搭成功</view>
-  <view class="chooseNo" bindtap="sorry"> <image src="../../pic/cry.png" style="margin-right:18rpx"></image> 勾搭不成功</view>
+  <view class="chooseYes" bindtap="wanted"> <image src="http://mttest.otoeasy.com/static/pic/smile.png" style="margin-right:18rpx"></image> 勾搭成功</view>
+  <view class="chooseNo" bindtap="sorry"> <image src="http://mttest.otoeasy.com/static/pic/cry.png" style="margin-right:18rpx"></image> 勾搭不成功</view>
 </view> 

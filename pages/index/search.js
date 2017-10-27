@@ -183,7 +183,6 @@ Page({
           education: study,
           language: language,
           flavor: taste,
-
           budget: budget,
           workNature: work,
           touristNature: travel,

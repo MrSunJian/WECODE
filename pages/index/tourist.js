@@ -261,7 +261,6 @@ Page({
         success:function(e){
           console.log(e)
           var list = e.data.data
-          list[0].status=4
           that.setData({
             list:list
           })

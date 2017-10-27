@@ -270,7 +270,7 @@
   background-position: center center;
   background-size: 10px auto;
   background-repeat: no-repeat;
-  background-image: url(../../pic/cha.png);
+  background-image: url(http://mttest.otoeasy.com/static/pic/cha.png);
 }
 .on .area2-swiper-areaname::after{
   display: block;

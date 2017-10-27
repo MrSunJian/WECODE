@@ -1,6 +1,6 @@
 <view class="container">
-  <view class="top"><image class="item" src="../../pic/v1.png"></image><image class="item" src="../../pic/v2.png"></image><image class="item" src="../../pic/v3.png"></image><image class="item" src="../../pic/v4_0.png"></image></view>
-  <view class="line"><view class="line_l"><image src="../../pic/jiao_1.png" class="foot"></image></view><view class="line_r"></view></view>
+  <view class="top"><image class="item" src="http://mttest.otoeasy.com/static/pic/v1.png"></image><image class="item" src="http://mttest.otoeasy.com/static/pic/v2.png"></image><image class="item" src="http://mttest.otoeasy.com/static/pic/v3.png"></image><image class="item" src="http://mttest.otoeasy.com/static/pic/v4_0.png"></image></view>
+  <view class="line"><view class="line_l"><image src="http://mttest.otoeasy.com/static/pic/jiao_1.png" class="foot"></image></view><view class="line_r"></view></view>
   <view class="tips"><text>为了规范平台运营，认证申请需要真实且符合相关规定。申请孤单星球认证需要支付9.9元/次的审核服务费用。</text><text class="special">申请实名认证，将有机会获得最高5万元的旅行基金。</text></view>
   <view class="button">
     <button class="skip" bindtap="skip">再逛逛</button> <button class="next" bindtap="next">立即支付</button>   

@@ -3,7 +3,7 @@
   margin: 0 auto;
   width:726rpx;
   height: 676rpx;
-  background-image: url(../../pic/bgpic.png);
+  background-image: url(http://mttest.otoeasy.com/static/pic/bgpic.png);
   background-size: cover;  
 }
 .date_pick,.place_pick,.partner_pick{
@@ -192,7 +192,7 @@
   background-position: center center;
   background-size: 10px auto;
   background-repeat: no-repeat;
-  background-image: url(http://cdn.jiguo.com/static/WeiXin/images/center/area_gou.png);
+  background-image: url(http://mttest.otoeasy.com/static/pic/cha.png);
 }
 .on .area2-swiper-areaname::after{
   display: block;

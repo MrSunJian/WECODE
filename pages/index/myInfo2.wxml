@@ -1,15 +1,15 @@
 <view class="container">
-  <view class="top"><image class="item" src="../../pic/v1.png"></image><image class="item" src="../../pic/v2.png"></image><image class="item" src="../../pic/v3_0.png"></image><image class="item" src="../../pic/v4_0.png"></image></view>
-  <view class="line"><view class="line_l"><image src="../../pic/jiao_1.png" class="foot"></image></view><view class="line_r"></view></view>
+  <view class="top"><image class="item" src="http://mttest.otoeasy.com/static/pic/v1.png"></image><image class="item" src="http://mttest.otoeasy.com/static/pic/v2.png"></image><image class="item" src="http://mttest.otoeasy.com/static/pic/v3_0.png"></image><image class="item" src="http://mttest.otoeasy.com/static/pic/v4_0.png"></image></view>
+  <view class="line"><view class="line_l"><image src="http://mttest.otoeasy.com/static/pic/jiao_1.png" class="foot"></image></view><view class="line_r"></view></view>
   <view class="addInfo">
-    <view class="item1"><text class="title">星座:</text><picker mode="selector" bindchange="star_change" value="{{index_star}}" range="{{array_star}}"><view class="content">{{array_star[index_star]}} <image src="../../pic/jiantou.png" class="arrow2"></image></view></picker></view>
+    <view class="item1"><text class="title">星座:</text><picker mode="selector" bindchange="star_change" value="{{index_star}}" range="{{array_star}}"><view class="content">{{array_star[index_star]}} <image src="http://mttest.otoeasy.com/static/pic/jiantou.png" class="arrow2"></image></view></picker></view>
     <view class="item1"><text class="title">学校:</text><input class="input" bindinput="school"/> </view>
-    <view class="item1"><text class="title">学历:</text><picker mode="selector" bindchange="study_change" value="{{index_study}}" range="{{array_study}}"><view class="content">{{array_study[index_study]}} <image src="../../pic/jiantou.png" class="arrow3"></image></view></picker></view>
+    <view class="item1"><text class="title">学历:</text><picker mode="selector" bindchange="study_change" value="{{index_study}}" range="{{array_study}}"><view class="content">{{array_study[index_study]}} <image src="http://mttest.otoeasy.com/static/pic/jiantou.png" class="arrow3"></image></view></picker></view>
     <view class="item1"><text class="title">兴趣爱好:</text><input class="input" bindinput="hobby"/> </view>
     
-    <view class="item1"><text class="title">工作性质:</text><picker mode="selector" bindchange="work_change" value="{{array_work}}" range="{{array_work}}"><view class="content">{{array_work[index_work]}}<image src="../../pic/jiantou.png" class="arrow1"></image></view></picker></view>
+    <view class="item1"><text class="title">工作性质:</text><picker mode="selector" bindchange="work_change" value="{{array_work}}" range="{{array_work}}"><view class="content">{{array_work[index_work]}}<image src="http://mttest.otoeasy.com/static/pic/jiantou.png" class="arrow1"></image></view></picker></view>
     
-    <view class="item1"><text class="title">芝麻信用分:</text><picker mode="selector" bindchange="zhima_change" value="{{index_zhima}}" range="{{zhima}}"><view class="content">{{zhima[index_zhima]}}<image src="../../pic/jiantou.png" class="arrow4"></image></view></picker></view>
+    <view class="item1"><text class="title">芝麻信用分:</text><picker mode="selector" bindchange="zhima_change" value="{{index_zhima}}" range="{{zhima}}"><view class="content">{{zhima[index_zhima]}}<image src="http://mttest.otoeasy.com/static/pic/jiantou.png" class="arrow4"></image></view></picker></view>
     <view class="item1" bindtap="showDetail"><text class="title">语言能力:</text><view class="content"><picker></picker></view></view>
     <view class="item_3" wx:if="{{show}}">
       <checkbox-group bindchange="languageChange" class="checkbox">
