@@ -43,23 +43,24 @@ Page({
           wx.setStorage({
             key:"userId",
             data: userId
+          })  
+          wx.reLaunch({
+            url: 'index',
           })
-         
         }else{
           wx.showModal({
             title: '',
-            content: '您输入的账号密码不一致，请重新输入',
+            content: e.data.msg,
             showCancel:false
           })
+          return false
         }
       },
       fail:function(e){
         console.log(e)
       },
       complete:function(){
-        wx.reLaunch({
-          url: 'index',
-        })
+        
       }
     })
   },

@@ -62,8 +62,7 @@ Page({
           })
       },
       fail:function(e){
-        console.log("222")
-        console.log(e)
+        
       }
     })
     wx.request({
