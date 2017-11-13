@@ -192,17 +192,17 @@ Page({
         method: 'POST',
         success: function (e) {
           console.log(e)
-          wx.switchTab({
-            url: 'explor'
+          wx.setStorageSync('searchResoult', e.data.data)
+          console.log(wx.getStorageSync('searchResoult'))
+          wx.navigateTo({
+            url: 'search_Result',
           })
         },
         fail: function (e) {
           console.log(e)
         }
       })
-    wx.navigateTo({
-      url: 'search_Result',
-    })
+    
   },
   
   showDetail:function(){

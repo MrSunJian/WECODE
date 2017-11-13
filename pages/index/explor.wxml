@@ -1,5 +1,5 @@
 
-<import src="../../template/area_select.wxml"/>
+<import src="https://friend.mjzxjt.com/static/template/area_select.wxml"/>
 <view class="container">
   <view style="position:relative;width:100%; border-bottom: 1rpx solid #eee; height:80rpx;"><view class="search_box" bindtap="choosearea"> <text style="padding-left:40rpx">请选择地址：</text><picker mode="region" bindchange="regionChange" value="{{region}}"><view class="place_choose value" style="margin-left:14rpx" wx:if="{{address.resideprovince}}">{{address.resideprovince}}-{{address.residecity}}</view></picker></view><button class="confirm" bindtap="confirm">确定</button></view>
     <view class="item-container" wx:for="{{list}}" wx:for-item="i"  >
@@ -17,18 +17,18 @@
               </view>
             </view>
             <view class="flex m_top">
-              <view class="date"><image src="../../pic/naozhong.png" id="left_img"></image><text class="message">{{i.startTime}}</text></view>
-              <view class="place"><image src="../../pic/diian.png" id="left_img1"></image><text class="message">{{i.area}}</text></view>
+              <view class="date"><image src="https://friend.mjzxjt.com/static/pic/naozhong.png" id="left_img"></image><text class="message">{{i.startTime}}</text></view>
+              <view class="place"><image src="https://friend.mjzxjt.com/static/pic/diian.png" id="left_img1"></image><text class="message">{{i.area}}</text></view>
               <!-- <view class="tag">
-                <!-- <image src="../../pic/findPartner.png"></image> -->
-                <!-- <!-- <image src="../../pic/findGuide.png"></image> -->
-                <!-- <image src="../../pic/guidePub.png"></image>
+                <!-- <image src="https://friend.mjzxjt.com/static/pic/findPartner.png"></image> -->
+                <!-- <!-- <image src="https://friend.mjzxjt.com/static/pic/findGuide.png"></image> -->
+                <!-- <image src="https://friend.mjzxjt.com/static/pic/guidePub.png"></image>
               </view>  -->
             </view>
           </view>
         </view>
       <view class="item-time padding_half">
-        <image id="tianjia" src="../../pic/xiaoxi_chat.png" data-id="{{i.userId}}" data-type="{{i.type}}" data-receivename="{{i.nickname}}" data-typeid="{{i.id}}" bindtap="goChatroom"></image>
+        <image id="tianjia" src="https://friend.mjzxjt.com/static/pic/xiaoxi_chat.png" data-id="{{i.userId}}" data-type="{{i.type}}" data-receivename="{{i.nickname}}" data-typeid="{{i.id}}" bindtap="goChatroom"></image>
       </view>
     </view>
 </view>

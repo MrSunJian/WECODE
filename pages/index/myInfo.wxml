@@ -1,10 +1,10 @@
 <import src="../../template/area_select.wxml"/>
 <view class="container">
-  <view class="top"><image class="item" src="http://mttest.otoeasy.com/static/pic/v1.png"></image><image class="item" src="http://mttest.otoeasy.com/static/pic/v2_0.png"></image><image class="item" src="http://mttest.otoeasy.com/static/pic/v3_0.png"></image><image class="item" src="http://mttest.otoeasy.com/static/pic/v4_0.png"></image></view>
-  <view class="line"><view class="line_l"><image src="http://mttest.otoeasy.com/static/pic/jiao_1.png" class="foot"></image></view><view class="line_r"></view></view>
+  <view class="top"><image class="item" src="https://friend.mjzxjt.com/static/pic/v1.png"></image><image class="item" src="https://friend.mjzxjt.com/static/pic/v2_0.png"></image><image class="item" src="https://friend.mjzxjt.com/static/pic/v3_0.png"></image><image class="item" src="https://friend.mjzxjt.com/static/pic/v4_0.png"></image></view>
+  <view class="line"><view class="line_l"><image src="https://friend.mjzxjt.com/static/pic/jiao_1.png" class="foot"></image></view><view class="line_r"></view></view>
   <view class="addInfo">
     <view class="item1"><text class="title">真实头像:</text> <image src="{{src}}" class="pic" bindtap="changePic"></image></view>
-    <view class="item1"><text class="title">真实姓名:</text><input class="input" bindinput="Name"/> </view>
+    <view class="item1"><text class="title">真实姓名:</text><input class="input" bindinput="Name" maxlength="7"/> </view>
     <view class="item1"><text class="title">年龄:</text><input class="input" bindinput="Age"/> </view>
     <view class="item1"><text class="title">身份证号:</text><input class="input" type="idcard" bindinput="idCard"/> </view>
     <view class="item1" bindtap="choosearea"><text class="title">常住地区:</text><picker mode="region" bindchange="regionChange" value="{{region}}"><view class="place_choose " style="margin-left:40rpx" wx:if="{{address.resideprovince}}">{{address.resideprovince}}-{{address.residecity}}-{{address.country}}</view></picker> </view>

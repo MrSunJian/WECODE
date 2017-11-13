@@ -57,7 +57,7 @@ Page({
         endTime:'2016-10-07',
         place: '云南丽江',
         star: '2',
-        pic: ['../../pic/bgpic.png', '../../pic/bgpic.png', '../../pic/bgpic.png'],
+        pic: ['https://friend.mjzxjt.com/static/pic/bgpic.png', 'https://friend.mjzxjt.com/static/pic/bgpic.png', 'https://friend.mjzxjt.com/static/pic/bgpic.png'],
         comment:'这种方式，相对比较容易理解，实现起来相对也更可控一点。但是这个方法在实现代码上会花更多的时间。用更多'
         },
         {
@@ -66,7 +66,7 @@ Page({
           place: '云南丽江',
           star: '1',
           price:'500',
-          pic: ['../../pic/bgpic.png', '../../pic/bgpic.png', '../../pic/bgpic.png'],
+          pic: ['https://friend.mjzxjt.com/static/pic/bgpic.png', 'https://friend.mjzxjt.com/static/pic/bgpic.png', 'https://friend.mjzxjt.com/static/pic/bgpic.png'],
           comment: '这种方式，相对比较容易理解，实现起来相对也更可控一点。但是这个方法在实现代码上会花更多的时间。用更多'
         },
         {
@@ -74,7 +74,7 @@ Page({
           endTime: '2016-10-07',
           place: '云南丽江',
           star: '2',
-          pic: ['../../pic/bgpic.png', '../../pic/bgpic.png', '../../pic/bgpic.png'],
+          pic: ['https://friend.mjzxjt.com/static/pic/bgpic.png', 'https://friend.mjzxjt.com/static/pic/bgpic.png', 'https://friend.mjzxjt.com/static/pic/bgpic.png'],
           comment: ''
         }
       ]

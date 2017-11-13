@@ -1,7 +1,7 @@
 
 <view class="container">
   <view class="top">
-    <view class="mini_pic"><image class="pic" src="{{myInfo.headImg_path}}"></image> <image src="http://mttest.otoeasy.com/static/pic/yirenzheng.png" class="renzheng" wx:if="{{myInfo.level=='4'}}"></image> </view>
+    <view class="mini_pic"><image class="pic" src="{{myInfo.headImg_path}}"></image> <image src="https://friend.mjzxjt.com/static/pic/yirenzheng.png" class="renzheng" wx:if="{{myInfo.level=='4'}}"></image> </view>
     <view class="person_info">
       <view class="info">
         <view class="left_info">
@@ -11,7 +11,7 @@
         </view>
         <view class="right_info">
           <text class="level">等级：</text><text class="level_num" >V{{myInfo.level}}</text> 
-          <button class="zan" bindtap="perfect" disabled="{{zan}}"> <image class="pic_zan" src="http://mttest.otoeasy.com/static/pic/zan.png"></image> {{myInfo.praise}}</button>
+          <button class="zan" bindtap="perfect" disabled="{{zan}}"> <image class="pic_zan" src="https://friend.mjzxjt.com/static/pic/zan.png"></image> {{myInfo.praise}}</button>
         </view>
       </view>
       <view class="tag">
@@ -20,7 +20,7 @@
           <view class="tag_item">{{tag4}} </view> <view class="tag_item">{{tag5}} </view> <view class="tag_item">{{tag6}} </view>
         </view>
         <view class="chatbox">
-          <image class="chatPic" src="http://mttest.otoeasy.com/static/pic/xiaoxi_chat.png" data-uid="{{myInfo.userId}}" data-type="{{type}}" data-typeid="{{typeId}}" data-receivename="{{myInfo.nickname}}" bindtap="goChatroom"></image>
+          <image class="chatPic" src="https://friend.mjzxjt.com/static/pic/xiaoxi_chat.png" data-uid="{{myInfo.userId}}" data-type="{{type}}" data-typeid="{{typeId}}" data-receivename="{{myInfo.nickname}}" bindtap="goChatroom"></image>
         </view>
       </view>
     </view>
@@ -50,10 +50,10 @@
           <view class="li_item"><view class="pic_jiao"></view><text class="search_time" >{{fabu_data.search.startTime}} 至 {{fabu_data.search.endTime}}</text></view>
           <view class="li_item"><view class="dian">●</view><text class="purpose_place">{{fabu_data.search.place}}</text><text style="padding-left:48rpx;color: #66dc46;font-size: 27rpx;font-weight: bold;">{{fabu_data.search.state}}</text></view>
           <view class="li_item_visited"><text class="search_time" >{{fabu_data.played[0].startTime}} 至 {{fabu_data.played[0].endTime}}</text></view>
-          <view class="li_item"><view class="dian">●</view><view class="visited_place">{{fabu_data.played[0].place}}</view> <view class="star"><image class="stars" src="http://mttest.otoeasy.com/static/pic/stars.png"></image><view class="cover" style="left:{{left}}rpx"></view></view> </view>
+          <view class="li_item"><view class="dian">●</view><view class="visited_place">{{fabu_data.played[0].place}}</view> <view class="star"><image class="stars" src="https://friend.mjzxjt.com/static/pic/stars.png"></image><view class="cover" style="left:{{left}}rpx"></view></view> </view>
           <view class="li_item"><image class="tour_pic" src="{{fabu_data.played[0].pic[0]}}"></image><image class="tour_pic" src="{{fabu_data.played[0].pic[0]}}"></image><image class="tour_pic" src="{{fabu_data.played[0].pic[0]}}"></image></view>
           <view class="li_item">
-            <view class="xin"><view class="pic_xin"><image src="http://mttest.otoeasy.com/static/pic/xin.png"></image></view><view class="pj"> 评价</view></view>
+            <view class="xin"><view class="pic_xin"><image src="https://friend.mjzxjt.com/static/pic/xin.png"></image></view><view class="pj"> 评价</view></view>
           </view>
           <view class="li_item">
             <view class="pj_detail">

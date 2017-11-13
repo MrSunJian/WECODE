@@ -6,17 +6,24 @@ Page({
    */
   data: {
     nickname:'孙建',
+    infoList: [
+      
+    ]
   },
-  enter:function(){
+  enter:function(e){
     wx.navigateTo({
-      url: 'wanted'
+      url: 'wanted?uid=' + e.currentTarget.dataset.id + '&&typeid=' + e.currentTarget.dataset.typeid + '&&type=' + e.currentTarget.dataset.type,
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var infoList = wx.getStorageSync('searchResoult')
+    console.log(infoList)
+    this.setData({
+      infoList: infoList
+    })
   },
 
   /**

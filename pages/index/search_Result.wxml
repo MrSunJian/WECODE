@@ -1,6 +1,16 @@
 <view class="container">
-  <view class="name">{{nickname}}</view>
-  <view class="head_pic"><image class="arrow_left arrow" src="../../pic/arrow_left.png"></image><image class="h_pic" src="../../pic/bgpic.png"></image><image class="arrow_right arrow"  src="../../pic/arrow_right.png"></image></view>
-  <text>查看更多照片</text>
-  <button class="enter" bindtap="enter" hover-class="enter_on"> <image src="../../pic/sousuo.png" class="" style="width:18rpx;height:20rpx;"></image>  点击进入</button>
+    <!-- <image class="arrow_left arrow" src="https://friend.mjzxjt.com/static/pic/arrow_left.png"></image> -->
+    <swiper  autoplay="true" interval="3000" duration="500" class="swiper">
+       
+        <swiper-item style="width:100%" wx:for="{{infoList}}">
+          <view class="name">{{item.nickname}}</view>
+          <image src="{{item.headImg}}" class="h_pic" bindtap="img1"/>
+          <text>查看更多照片</text>
+          <button class="enter" bindtap="enter" data-id="item.userId" hover-class="enter_on"> 
+            <image src="https://friend.mjzxjt.com/static/pic/sousuo.png" class="" style="width:18rpx;height:20rpx;"></image>  点击进入
+          </button>
+        </swiper-item>        
+      
+    </swiper>
+    <!-- <image class="arrow_right arrow"  src="https://friend.mjzxjt.com/static/pic/arrow_right.png"></image> -->  
 </view>

@@ -2,7 +2,7 @@
 
 <view class="container">
   <view class="top">
-    <view class="mini_pic"><image class="pic" src="{{myInfo.headImg_path}}"></image> <image src="http://mttest.otoeasy.com/static/pic/yirenzheng.png" class="renzheng" wx:if="{{myInfo.level=='4'}}"></image> </view> 
+    <view class="mini_pic"><image class="pic" src="{{myInfo.headImg_path}}"></image> <image src="https://friend.mjzxjt.com/static/pic/yirenzheng.png" class="renzheng" wx:if="{{myInfo.level=='4'}}"></image> </view> 
     <view class="person_info">
       <view class="info">
         <view class="left_info">
@@ -12,7 +12,7 @@
         </view>
         <view class="right_info">
           <text class="level">等级：</text> <text class="level_num" bindtap="level_up" data-level="{{myInfo.level}}">V{{myInfo.level}}</text>
-          <view class="zan"  disabled="true"> <image class="pic_zan" src="http://mttest.otoeasy.com/static/pic/zan.png"></image> {{myInfo.praise}}</view>
+          <view class="zan"  disabled="true"> <image class="pic_zan" src="https://friend.mjzxjt.com/static/pic/zan.png"></image> {{myInfo.praise}}</view>
         </view>
       </view>
       <!-- <view class="tag">
@@ -21,7 +21,7 @@
           
         </view> -->
         <!-- <view class="chatbox">
-          <image class="chatPic" src="http://mttest.otoeasy.com/static/pic/xiaoxi_chat.png" data-name="{{name}}" data-id="{{id}}" bindtap="gotomessage"></image>
+          <image class="chatPic" src="https://friend.mjzxjt.com/static/pic/xiaoxi_chat.png" data-name="{{name}}" data-id="{{id}}" bindtap="gotomessage"></image>
         </view> -->
       <!-- </view> -->
     </view>
@@ -31,7 +31,7 @@
     <view class="tuji_list" wx:if="{{state3}}">
       <image wx:for="{{imgList}}" src="{{item}}" data-src="{{item}}" class="tuji_list_item" bindtap="big_pic"></image> 
     </view>
-    <image src="http://mttest.otoeasy.com/static/pic/fabu.png" class="btn_add" bindtap="add" wx:if="{{state3}}"></image>
+    <image src="https://friend.mjzxjt.com/static/pic/fabu.png" class="btn_add" bindtap="add" wx:if="{{state3}}"></image>
     <view class="personal_info" wx:if="{{state2}}">
       <view class="personal_info_item">年龄：{{myInfo.age}}</view>
       <view class="personal_info_item">星座：{{myInfo.constellation}}</view>
@@ -62,10 +62,10 @@
           </view>
 
           <view class="li_item_visited"><text class="search_time" >{{fabu_data.played[0].startTime}} 至 {{fabu_data.played[0].endTime}}</text></view>
-          <view class="li_item"><view class="dian">●</view><view class="visited_place">{{fabu_data.played[0].place}}</view> <view class="star"><image class="stars" src="http://mttest.otoeasy.com/static/pic/stars.png"></image><view class="cover" style="left:{{left}}rpx"></view></view> </view>
+          <view class="li_item"><view class="dian">●</view><view class="visited_place">{{fabu_data.played[0].place}}</view> <view class="star"><image class="stars" src="https://friend.mjzxjt.com/static/pic/stars.png"></image><view class="cover" style="left:{{left}}rpx"></view></view> </view>
           <view class="li_item"><image class="tour_pic" src="{{fabu_data.played[0].pic[0]}}"></image><image class="tour_pic" src="{{fabu_data.played[0].pic[0]}}"></image><image class="tour_pic" src="{{fabu_data.played[0].pic[0]}}"></image></view>
           <view class="li_item">
-            <view class="xin"><view class="pic_xin"><image src="http://mttest.otoeasy.com/static/pic/xin.png"></image></view><view class="pj"> 评价</view></view>
+            <view class="xin"><view class="pic_xin"><image src="https://friend.mjzxjt.com/static/pic/xin.png"></image></view><view class="pj"> 评价</view></view>
           </view>
           <view class="li_item">
             <view class="pj_detail">
@@ -74,10 +74,10 @@
           </view>
 
           <view class="li_item_visited"><text class="search_time" >{{fabu_data.played[1].startTime}} 至 {{fabu_data.played[1].endTime}}</text></view>
-          <view class="li_item"><view class="dian">●</view><view class="visited_place">{{fabu_data.played[1].place}}</view> <view class="star"><image class="stars" src="http://mttest.otoeasy.com/static/pic/stars.png"></image><view class="cover" style="left:{{left}}rpx"></view></view> <text wx:if="{{fabu_data.played[1].price}}" style="padding-left:48rpx;color: #333;font-size: 27rpx;font-weight: bold;z-index:999"> 价格：{{fabu_data.played[1].price}}元</text></view>
+          <view class="li_item"><view class="dian">●</view><view class="visited_place">{{fabu_data.played[1].place}}</view> <view class="star"><image class="stars" src="https://friend.mjzxjt.com/static/pic/stars.png"></image><view class="cover" style="left:{{left}}rpx"></view></view> <text wx:if="{{fabu_data.played[1].price}}" style="padding-left:48rpx;color: #333;font-size: 27rpx;font-weight: bold;z-index:999"> 价格：{{fabu_data.played[1].price}}元</text></view>
           <view class="li_item"><image class="tour_pic" src="{{fabu_data.played[1].pic[0]}}"></image><image class="tour_pic" src="{{fabu_data.played[1].pic[1]}}"></image><image class="tour_pic" src="{{fabu_data.played[1].pic[2]}}"></image></view>
           <view class="li_item">
-            <view class="xin"><view class="pic_xin"><image src="http://mttest.otoeasy.com/static/pic/xin.png"></image></view><view class="pj"> 评价</view></view>
+            <view class="xin"><view class="pic_xin"><image src="https://friend.mjzxjt.com/static/pic/xin.png"></image></view><view class="pj"> 评价</view></view>
           </view>
           <view class="li_item">
             <view class="pj_detail">
@@ -95,7 +95,7 @@
         <view class="list">订单状态：  <text wx:if="{{i.status==0}}" data-orderid="{{i.orderId}}"> 已取消</text><text wx:if="{{i.status==5}}"> 活动已结束</text><text wx:if="{{i.status==1}}"> 勾搭中</text><text wx:if="{{i.status==2}}"> 勾搭成功</text><text wx:if="{{i.status==3}}"> 勾搭失败</text><text wx:if="{{i.status==4}}"> 支付成功</text><view class="goComment" bindtap="goPay" wx:if="{{i.status==2&&i.status!==4}}">去支付</view><view class="goComment" bindtap="cancelOrder" data-orderid="{{i.orderId}}" wx:if="{{i.status==4}}">取消订单</view></view>
         <view class="list">出游时间：{{i.typeInfo.startTime}}</view>
         <view class="list">出游地点：{{i.typeInfo.area}}</view>
-        <view class="list" wx:if="{{i.star!==null&&i.status==5}}">评 <text style="margin-left:60rpx"> 价：</text><view class="star1"><image class="stars2" src="http://mttest.otoeasy.com/static/pic/stars.png"></image><view class="cover1" style="left:{{i.star*38+6}}rpx"></view></view>    </view>  
+        <view class="list" wx:if="{{i.star!==null&&i.status==5}}">评 <text style="margin-left:60rpx"> 价：</text><view class="star1"><image class="stars2" src="https://friend.mjzxjt.com/static/pic/stars.png"></image><view class="cover1" style="left:{{i.star*38+6}}rpx"></view></view>    </view>  
         <view class="list" wx:if="{{i.star==null&&i.status==5}}">评 <text style="margin-left:60rpx"> 价：</text> <text>您尚未评价</text> <view class="goComment" bindtap="goComment" data-touserid="{{i.toUserId}}" data-orderid="{{i.orderId}}">去评价</view></view> 
       </view>
     </view>

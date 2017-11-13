@@ -198,7 +198,7 @@
   background-position: center center;
   background-size: 10px auto;
   background-repeat: no-repeat;
-  background-image: url(http://cdn.jiguo.com/static/WeiXin/images/center/area_gou.png);
+  background-image: url(../../pic/cha.png);
 }
 .on .area2-swiper-areaname::after{
   display: block;

@@ -4,21 +4,27 @@
   color: rgb(200, 200, 200);
   font-size: 36rpx;
 }
+.swiper{
+  width: 750rpx;
+  height:1100rpx
+}
 .name{
+  margin: 0 auto;
   margin-top: 40rpx;
   color: rgb(100, 100, 100);
   font-size: 80rpx;
 }
-.head_pic{
+/* .head_pic{
   width: 570rpx;
   height: 570rpx;
   margin: 80rpx auto;
   position:  relative
-}
+} */
 .h_pic{
-  width: 100%;
-  height: 100%;
+  width: 500rpx;
+  height: 500rpx;
   border-radius: 50%;
+  margin: 100rpx 124rpx
 }
 .enter{
   width: 500rpx;
@@ -32,7 +38,7 @@
 .enter_on{
   background-color: #dedede;
 }
-.arrow{
+/* .arrow{
   width: 28rpx;
   height: 46rpx;
 }
@@ -45,5 +51,5 @@
   position: absolute;
   top:280rpx;
   left: 510rpx;
-}
+} */
 

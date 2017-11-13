@@ -1,7 +1,7 @@
 <import src="../../template/area_select.wxml"/>
 <view class="container1">
   <view class="info">
-    <view class="item"> <view class="item_container"> <text>昵称:</text><input class="input" bindinput="nickName"/> </view></view>
+    <view class="item"> <view class="item_container"> <text>昵称:</text><input class="input" bindinput="nickName" maxlength="5"/> </view></view>
     <view class="item"> <view class="item_container"> <text>性别:</text><radio-group style="display:inline-block;" bindchange="sexChange"><radio value="男" checked="{{false}}" style="margin-left:40rpx"/>男 <radio value="女" checked="{{false}}" style="margin-left:40rpx"/>女</radio-group> </view></view>
     <view class="item" bindtap="choosearea"> <view class="item_container" > <text>地域:</text><picker mode="region" bindchange="regionChange" value="{{region}}"><view class="place_choose " style="margin-left:40rpx" wx:if="{{address.resideprovince}}">{{address.resideprovince}}-{{address.residecity}}-{{address.country}}</view></picker> </view></view>
     <view class="item"> <view class="item_container"> <text>手机号:</text><input class="input"  type="number" maxlength="11" bindinput="phoneNum"/> </view></view>

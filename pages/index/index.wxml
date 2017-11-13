@@ -2,26 +2,26 @@
 <view class="container">
   <view class="top">
     <view class="date_pick">
-      <image src="http://mttest.otoeasy.com/static/pic/shijian.png" class="time"></image> 时间:
+      <image src="https://friend.mjzxjt.com/static/pic/shijian.png" class="time"></image> 时间:
       <view class="date">  <view class="date_picker1"><picker mode="date" bindchange="bindDateChange1" start="{{startDate}}">{{startDate}}</picker></view>至 <view class="date_picker2"><picker mode="date" bindchange="bindDateChange2" start="{{startDate}}"> {{endDate}}</picker></view> </view>
     </view>
     <picker mode="region" bindchange="regionChange" value="{{region}}">
       <view class="place_pick select" bindtap="choosearea">
-        <image src="http://mttest.otoeasy.com/static/pic/didian.png" class="place"></image> 地点：<view class="place_choose value" wx:if="{{address.resideprovince}}">{{address.resideprovince}}-{{address.residecity}}-{{address.country}}</view>
+        <image src="https://friend.mjzxjt.com/static/pic/didian.png" class="place"></image> 地点：<view class="place_choose value" wx:if="{{address.resideprovince}}">{{address.resideprovince}}-{{address.residecity}}-{{address.country}}</view>
       </view>
       <template is="area_select" data="{{showArea,resideprovince,residecity,country,currentTab,curr_pro,curr_cit,curr_cou}}" />
     </picker>
     <picker mode="selector" value="{{index}}" range="{{array}}" bindchange="purposeChange">
       <view class="partner_pick">
-        <image src="http://mttest.otoeasy.com/static/pic/wwtr.png" class="purpose"></image> {{objectArray[index]}}
+        <image src="https://friend.mjzxjt.com/static/pic/wwtr.png" class="purpose"></image> {{objectArray[index]}}
       </view>
     </picker>
     <view class="gaojisousuo" bindtap="search">
-      <image src="http://mttest.otoeasy.com/static/pic/sousuo.png" class="sousuo"> </image><text class="sousuo_text">高级搜索</text>
+      <image src="https://friend.mjzxjt.com/static/pic/sousuo.png" class="sousuo"> </image><text class="sousuo_text">高级搜索</text>
     </view>
   </view>
   <view class="tuijian">
-    <view class="title">当月旅友推荐</view><view class="change" bindtap="change"> <image src="http://mttest.otoeasy.com/static/pic/change.png"></image> <text>换一批</text></view>
+    <view class="title">当月旅友推荐</view><view class="change" bindtap="change"> <image src="https://friend.mjzxjt.com/static/pic/change.png"></image> <text>换一批</text></view>
     <view class="tuijian_list">
       <image class="list_item" wx:for="{{suggest}}" src="{{item.headImg}}" data-uid="{{item.userId}}" data-typeid="{{item.mateId}}" data-type="{{type}}" bindtap="imgTap"></image>
       <!-- <image class="list_item" src="../../pic/bgpic.png" ></image>

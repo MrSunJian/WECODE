@@ -2,6 +2,6 @@
 
 module.exports = {
   
-    host: 'http://mttest.otoeasy.com',
+  host: 'https://friend.mjzxjt.com',
   
 }

@@ -1,6 +1,6 @@
 <view class="container">
   <view class="top">
-    <view class="mini_pic"><image class="pic" src="{{myInfo.headImg_path}}"></image><image wx:if="{{myInfo.level=='4'}}" src="http://mttest.otoeasy.com/static/pic/yirenzheng.png" class="renzheng"></image> </view>
+    <view class="mini_pic"><image class="pic" src="{{myInfo.headImg_path}}"></image><image wx:if="{{myInfo.level=='4'}}" src="https://friend.mjzxjt.com/static/pic/yirenzheng.png" class="renzheng"></image> </view>
     <view class="person_info">
       <view class="info">
         <view class="left_info">
@@ -10,7 +10,7 @@
         </view>
         <view class="right_info">
           <text class="level">等级：V{{myInfo.level}}</text> 
-          <button class="zan" bindtap="perfect" disabled="{{zan}}"> <image class="pic_zan" src="http://mttest.otoeasy.com/static/pic/zan.png"></image> {{myInfo.praise}}</button>
+          <button class="zan" bindtap="perfect" disabled="{{zan}}"> <image class="pic_zan" src="https://friend.mjzxjt.com/static/pic/zan.png"></image> {{myInfo.praise}}</button>
         </view>
       </view>
       <view class="tag">
@@ -34,11 +34,11 @@
     <view class="text">选择图片：</view>
     <view class="upload_pic">
       <image wx:for="{{imgList}}" src="{{item}}"></image>
-      <image src="http://mttest.otoeasy.com/static/pic/add.png" wx:if="{{showAdd}}" bindtap="chooseImg" ></image> 
+      <image src="https://friend.mjzxjt.com/static/pic/add.png" wx:if="{{showAdd}}" bindtap="chooseImg" ></image> 
     </view>
   </view>
   <view class="pingjia">
-    <view class="title"><image src="http://mttest.otoeasy.com/static/pic/xin.png"></image><text class="text1">评价</text></view>
+    <view class="title"><image src="https://friend.mjzxjt.com/static/pic/xin.png"></image><text class="text1">评价</text></view>
     <textarea class="input" bindinput="comment"/>
   </view>
   <button class="pub" bindtap="pub">发表</button>
